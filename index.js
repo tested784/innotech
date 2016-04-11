@@ -15,11 +15,11 @@
 
  */
 var express = require("express")
-  , app = express()
-  , http = require("http").createServer(app)
-  , bodyParser = require("body-parser")
-  , io = require("socket.io").listen(http)
-  , _ = require("underscore");
+    , app = express()
+    , http = require("http").createServer(app)
+    , bodyParser = require("body-parser")
+    , io = require("socket.io").listen(http)
+    , _ = require("underscore");
 
 /*
  The list of participants in our chatroom.
@@ -33,19 +33,19 @@ var participants = [];
 
 /* Server config */
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
-  next();
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+    next();
 });
 
 //Server's IP address
 app.set("ipaddr", "127.0.0.1");
 
 //Server's port number
-app.set("port", 8080);
+app.set("port", process.env.PORT || 8080);
 
 //Specify the views folder
 app.set("views", __dirname + "/views");
@@ -61,69 +61,69 @@ app.use(bodyParser.json());
 /* Server routing */
 
 //Handle route "GET /", as in "http://localhost:8080/"
-app.get("/", function(request, response) {
+app.get("/", function (request, response) {
 
-  //Render the view called "index"
-  response.render("index");
+    //Render the view called "index"
+    response.render("index");
 
 });
 
 //POST method to create a chat message
-app.post("/band", function(request, response) {
+app.post("/band", function (request, response) {
 
-  //The request body expects a param named "message"
-  var sequence = request.body.sequence;
-  var user = request.body.user;
+    //The request body expects a param named "message"
+    var sequence = request.body.sequence;
+    var user = request.body.user;
 
-  //If the message is empty or wasn't sent it's a bad request
-  if(_.isUndefined(sequence) || ( _.isUndefined(user) || _.isEmpty(user.trim()))) {
-    return response.json(400, {error: "Sequence is invalid"});
-  }
+    //If the message is empty or wasn't sent it's a bad request
+    if (_.isUndefined(sequence) || ( _.isUndefined(user) || _.isEmpty(user.trim()))) {
+        return response.json(400, {error: "Sequence is invalid"});
+    }
 
-  //Let our chatroom know there was a new message
-  io.sockets.emit("incomingSequence", {sequence: sequence, user: user});
+    //Let our chatroom know there was a new message
+    io.sockets.emit("incomingSequence", {sequence: sequence, user: user});
 
-  //Looks good, let the client know
-  response.json(200, {message: "Sequence received"});
+    //Looks good, let the client know
+    response.json(200, {message: "Sequence received"});
 
 });
 
 /* Socket.IO events */
-io.on("connection", function(socket){
+io.on("connection", function (socket) {
 
-  /*
-   When a new user connects to our server, we expect an event called "newUser"
-   and then we'll emit an event called "newConnection" with a list of all
-   participants to all connected clients
-   */
-  socket.on("newUser", function(data) {
-    participants.push({id: data.id, name: data.name});
-    io.sockets.emit("newConnection", {participants: participants});
-  });
+    /*
+     When a new user connects to our server, we expect an event called "newUser"
+     and then we'll emit an event called "newConnection" with a list of all
+     participants to all connected clients
+     */
+    socket.on("newUser", function (data) {
+        participants.push({id: data.id, name: data.name});
+        io.sockets.emit("newConnection", {participants: participants});
+    });
 
-  /*
-   When a user changes his name, we are expecting an event called "nameChange"
-   and then we'll emit an event called "nameChanged" to all participants with
-   the id and new name of the user who emitted the original message
-   */
-  socket.on("nameChange", function(data) {
-    _.findWhere(participants, {id: socket.id}).name = data.name;
-    io.sockets.emit("nameChanged", {id: data.id, name: data.name});
-  });
+    /*
+     When a user changes his name, we are expecting an event called "nameChange"
+     and then we'll emit an event called "nameChanged" to all participants with
+     the id and new name of the user who emitted the original message
+     */
+    socket.on("nameChange", function (data) {
+        _.findWhere(participants, {id: socket.id}).name = data.name;
+        io.sockets.emit("nameChanged", {id: data.id, name: data.name});
+    });
 
-  /*
-   When a client disconnects from the server, the event "disconnect" is automatically
-   captured by the server. It will then emit an event called "userDisconnected" to
-   all participants with the id of the client that disconnected
-   */
-  socket.on("disconnect", function() {
-    participants = _.without(participants,_.findWhere(participants, {id: socket.id}));
-    io.sockets.emit("userDisconnected", {id: socket.id, sender:"system"});
-  });
+    /*
+     When a client disconnects from the server, the event "disconnect" is automatically
+     captured by the server. It will then emit an event called "userDisconnected" to
+     all participants with the id of the client that disconnected
+     */
+    socket.on("disconnect", function () {
+        participants = _.without(participants, _.findWhere(participants, {id: socket.id}));
+        io.sockets.emit("userDisconnected", {id: socket.id, sender: "system"});
+    });
 
 });
 
 //Start the http server at port and IP defined before
-http.listen(app.get("port"), app.get("ipaddr"), function() {
-  console.log("Server up and running. Go to http://" + app.get("ipaddr") + ":" + app.get("port"));
+http.listen(app.get("port"), app.get("ipaddr"), function () {
+    console.log("Server up and running. Go to http://" + app.get("ipaddr") + ":" + app.get("port"));
 });
