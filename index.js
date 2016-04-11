@@ -41,12 +41,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-//Server's IP address
-app.set("ipaddr", "127.0.0.1");
-
-//Server's port number
-app.set("port", process.env.PORT || 8080);
-
 //Specify the views folder
 app.set("views", __dirname + "/views");
 
@@ -124,6 +118,4 @@ io.on("connection", function (socket) {
 });
 
 //Start the http server at port and IP defined before
-http.listen(app.get("port"), app.get("ipaddr"), function () {
-    console.log("Server up and running. Go to http://" + app.get("ipaddr") + ":" + app.get("port"));
-});
+http.listen(process.env.PORT || 8080);
