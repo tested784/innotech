@@ -102,10 +102,17 @@ input {
 }
 
 .puck-button.play-pause {
-  margin-left: -30px;
+  margin-left: -100px;
   bottom: 213px;
   left: 50%;
   background-image: url("assets/image/ui_play.svg");
+}
+
+.puck-button.save {
+  margin-left: 0;
+  bottom: 213px;
+  left: 50%;
+  background-image: url("assets/image/ui_arrow.svg");
 }
 
 .playing .puck-button.play-pause,

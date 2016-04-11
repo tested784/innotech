@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 window.musicbox.Sequencer = function (opts) {
 
     opts = aaf.utils.defaults(opts, {
@@ -192,7 +194,6 @@ window.musicbox.Sequencer.prototype.onInterval = function (time) {
     // see if there's any active beats at this step number
     var millis = ( time - Tone.Transport.currentTime ) * 1000;
 
-
     for (var i = 0, l = this.tracks.length; i < l; i++) {
 
         var track = this.tracks[i];
@@ -379,6 +380,17 @@ window.musicbox.Sequencer.prototype.buildDom = function (opts) {
 };
 
 window.musicbox.Sequencer.prototype.touchSlot = function (track, beat, el, val) {
+    var sequence = this.tracks;
+    $.ajax({
+        url: '/band',
+        type: 'POST',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify({
+            sequence: sequence,
+            user: window.sessionId
+        })
+    });
     this.dragOperation = this.toggleBeat(track, beat, el, val);
 };
 
