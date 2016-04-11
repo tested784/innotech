@@ -337,3 +337,14 @@ input {
   -ms-transform: scale(1);
   transform: scale(1);
 }
+
+#meta {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+}
+
+#participants {
+  position: relative;
+}

@@ -91,7 +91,7 @@ io.on("connection", function (socket) {
      participants to all connected clients
      */
     socket.on("newUser", function (data) {
-        participants.push({id: data.id, name: data.name});
+        participants.push({id: data.id});
         io.sockets.emit("newConnection", {participants: participants});
     });
 
