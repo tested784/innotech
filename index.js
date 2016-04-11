@@ -75,7 +75,7 @@ app.post("/band", function (request, response) {
     }
 
     //Let our chatroom know there was a new message
-    io.sockets.emit("incomingSequence", {sequence: sequence, user: user});
+    io.to('music-jam').emit("incomingSequence", {sequence: sequence, user: user});
 
     //Looks good, let the client know
     response.json(200, {message: "Sequence received"});
@@ -84,6 +84,7 @@ app.post("/band", function (request, response) {
 
 /* Socket.IO events */
 io.on("connection", function (socket) {
+    socket.join('music-jam');
 
     /*
      When a new user connects to our server, we expect an event called "newUser"
@@ -92,7 +93,7 @@ io.on("connection", function (socket) {
      */
     socket.on("newUser", function (data) {
         participants.push({id: data.id});
-        io.sockets.emit("newConnection", {participants: participants});
+        io.to('music-jam').emit("newConnection", {participants: participants});
     });
 
     /*
@@ -102,7 +103,7 @@ io.on("connection", function (socket) {
      */
     socket.on("nameChange", function (data) {
         _.findWhere(participants, {id: socket.id}).name = data.name;
-        io.sockets.emit("nameChanged", {id: data.id, name: data.name});
+        io.to('music-jam').emit("nameChanged", {id: data.id, name: data.name});
     });
 
     /*
@@ -111,8 +112,9 @@ io.on("connection", function (socket) {
      all participants with the id of the client that disconnected
      */
     socket.on("disconnect", function () {
+        socket.leave('music-jam');
         participants = _.without(participants, _.findWhere(participants, {id: socket.id}));
-        io.sockets.emit("userDisconnected", {id: socket.id, sender: "system"});
+        io.to('music-jam').emit("userDisconnected", {id: socket.id, sender: "system"});
     });
 
 });

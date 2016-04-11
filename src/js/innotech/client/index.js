@@ -40,8 +40,9 @@ function init() {
     //Helper function to update the participants' list
     function updateParticipants(participants) {
         $('#participants').html('');
+        $('#participants').append('<ul id="participants-list">');
         for (var i = 0; i < participants.length; i++) {
-            $('#participants').append('<span>').html(participants[i].id);
+            $('#participants-list').append('<li>' + participants[i].id + '</li>');
         }
     }
 
@@ -53,10 +54,10 @@ function init() {
      for that.
      */
     socket.on('connect', function () {
-        window.sessionId = socket.io.engine.id;
+        var sessionId = socket.io.engine.id;
         console.log('Connected');
         socket.emit('newUser', {
-            id: window.sessionId
+            id: sessionId
         });
     });
 
@@ -66,7 +67,6 @@ function init() {
      Note we are assigning the sessionId as the span ID.
      */
     socket.on('newConnection', function (data) {
-        console.log(data);
         updateParticipants(data.participants);
     });
 
