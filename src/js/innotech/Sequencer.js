@@ -374,6 +374,7 @@ window.musicbox.Sequencer.prototype.buildDom = function (opts) {
 
 window.musicbox.Sequencer.prototype.touchSlot = function (track, beat, el, val) {
     var sequence = this.tracks;
+    this.dragOperation = this.toggleBeat(track, beat, el, val);
     $.ajax({
         url: '/sequence',
         type: 'POST',
@@ -384,7 +385,6 @@ window.musicbox.Sequencer.prototype.touchSlot = function (track, beat, el, val) 
             user: window.sessionId
         })
     });
-    this.dragOperation = this.toggleBeat(track, beat, el, val);
 };
 
 window.musicbox.Sequencer.prototype.setBeat = function (track, beat, el, val, suppressSample) {
