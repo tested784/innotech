@@ -4,8 +4,14 @@ html
         script(type="text/javascript" src="//gweb-musiclab-site.appspot.com/static/js/Tone.min.js")
 
         script(src='/js/app.js')
-        title Innovative Technology
+        title Innovative Technology - Client
     body
-        div#container
-        div#meta
-           div#participants
+        div#selectionPage
+            div#selectionContainer
+                button(class="choose", data-type="guitar") Guitar
+                button(class="choose", data-type="drums") Drums
+                button(class="choose", data-type="drumsAlt") Drums Alt
+                button(class="choose", data-type="random") Random
+                button(class="choose", data-type="bass") Bass
+    div#sequencePage.hide
+            div#container

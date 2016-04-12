@@ -21,14 +21,7 @@ var express = require("express")
     , io = require("socket.io").listen(http)
     , _ = require("underscore");
 
-/*
- The list of participants in our chatroom.
- The format of each participant will be:
- {
- id: "sessionId",
- name: "participantName"
- }
- */
+
 var participants = [];
 
 /* Server config */
@@ -62,8 +55,22 @@ app.get("/", function (request, response) {
 
 });
 
+//Handle route "GET /", as in "http://localhost:8080/"
+app.get("/rooms/:name", function (request, response) {
+
+    var roomName = request.params.name;
+    var room = io.nsps['/'].adapter.rooms['music-jam'];
+    if (room) {
+        response.render("room");
+    }
+    else {
+        response.json(JSON.stringify({message: "No room exists with the name " + roomName}));
+    }
+
+});
+
 //POST method to create a chat message
-app.post("/band", function (request, response) {
+app.post("/sequence", function (request, response) {
 
     //The request body expects a param named "message"
     var sequence = request.body.sequence;
@@ -84,38 +91,49 @@ app.post("/band", function (request, response) {
 
 /* Socket.IO events */
 io.on("connection", function (socket) {
-    socket.join('music-jam');
+    // kijk of de room music-jam bestaat
+    var room = io.nsps['/'].adapter.rooms['music-jam'];
+    if (room) {
+        var roomSize = Object.keys(room).length;
+    }
+    // max aantal clients in room = 4
+    if (room === undefined || roomSize < 4) {
+        socket.join('music-jam');
+        /*
+         When a new user connects to our server, we expect an event called "newUser"
+         and then we'll emit an event called "newConnection" with a list of all
+         participants to all connected clients
+         */
+        socket.on("newUser", function (data) {
+            participants.push({id: data.id, instrument: data.instrument});
+            io.to('music-jam').emit("newConnection", {id: data.id, instrument: data.instrument});
+        });
 
-    /*
-     When a new user connects to our server, we expect an event called "newUser"
-     and then we'll emit an event called "newConnection" with a list of all
-     participants to all connected clients
-     */
-    socket.on("newUser", function (data) {
-        participants.push({id: data.id});
-        io.to('music-jam').emit("newConnection", {participants: participants});
-    });
+        /*
+         When a user changes his name, we are expecting an event called "nameChange"
+         and then we'll emit an event called "nameChanged" to all participants with
+         the id and new name of the user who emitted the original message
+         */
+        socket.on("nameChange", function (data) {
+            _.findWhere(participants, {id: socket.id}).name = data.name;
+            io.to('music-jam').emit("nameChanged", {id: data.id, name: data.name});
+        });
 
-    /*
-     When a user changes his name, we are expecting an event called "nameChange"
-     and then we'll emit an event called "nameChanged" to all participants with
-     the id and new name of the user who emitted the original message
-     */
-    socket.on("nameChange", function (data) {
-        _.findWhere(participants, {id: socket.id}).name = data.name;
-        io.to('music-jam').emit("nameChanged", {id: data.id, name: data.name});
-    });
+        /*
+         When a client disconnects from the server, the event "disconnect" is automatically
+         captured by the server. It will then emit an event called "userDisconnected" to
+         all participants with the id of the client that disconnected
+         */
+        socket.on("disconnect", function () {
+            socket.leave('music-jam');
+            participants = _.without(participants, _.findWhere(participants, {id: socket.id}));
+            io.to('music-jam').emit("userDisconnected", {id: socket.id, sender: "system"});
+        });
+    }
+    else {
+        socket.disconnect();
+    }
 
-    /*
-     When a client disconnects from the server, the event "disconnect" is automatically
-     captured by the server. It will then emit an event called "userDisconnected" to
-     all participants with the id of the client that disconnected
-     */
-    socket.on("disconnect", function () {
-        socket.leave('music-jam');
-        participants = _.without(participants, _.findWhere(participants, {id: socket.id}));
-        io.to('music-jam').emit("userDisconnected", {id: socket.id, sender: "system"});
-    });
 
 });
 

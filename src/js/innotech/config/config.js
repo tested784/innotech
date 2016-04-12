@@ -1,12 +1,5 @@
-require('./conga.characterBig');
-require('./conga.characterSmall');
-require('./conga.sequencer');
-require('./kit.characterBig');
-require('./kit.characterSmall');
-require('./kit.sequencer');
-require('./timpani.characterBig');
-require('./timpani.characterSmall');
-require('./timpani.sequencer');
-require('./woodblock.characterBig');
-require('./woodblock.characterSmall');
-require('./woodblock.sequencer');
+require('./drums.sequencer');
+require('./drumsAlt.sequencer');
+require('./bass.sequencer');
+require('./guitar.sequencer');
+require('./random.sequencer');

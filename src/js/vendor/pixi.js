@@ -16552,7 +16552,7 @@ var math = require('../math'),
  * A sprite can be created directly from an image like this:
  *
  * ```js
- * var sprite = new PIXI.Sprite.fromImage('assets/image.png');
+ * var sprite = new PIXI.Sprite.fromImage('/assets/image.png');
  * ```
  *
  * @class
@@ -19170,7 +19170,7 @@ var BaseTexture = require('./BaseTexture'),
  * You can directly create a texture from an image and then reuse it multiple times like this :
  *
  * ```js
- * var texture = PIXI.Texture.fromImage('assets/image.png');
+ * var texture = PIXI.Texture.fromImage('/assets/image.png');
  * var sprite1 = new PIXI.Sprite(texture);
  * var sprite2 = new PIXI.Sprite(texture);
  * ```
