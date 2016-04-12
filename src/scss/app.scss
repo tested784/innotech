@@ -48,6 +48,14 @@ input {
   position: absolute;
 }
 
+#selectionPage, #sequencePage {
+  height: 100%;
+}
+
+.hide {
+  display: none;
+}
+
 #about,
 #menu {
   margin: 10px;

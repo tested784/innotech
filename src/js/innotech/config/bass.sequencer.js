@@ -1,13 +1,13 @@
-window.musicbox.config.guitar.sequencer = {
+window.musicbox.config.bass.sequencer = {
 
     beats: 6,
     timeSignature: 6,
     bpm: 100,
 
     samples: [
-        '/assets/sample/guitar/G.wav',
-        '/assets/sample/guitar/F.wav',
-        '/assets/sample/guitar/C.wav'
+        '/assets/sample/bass/C.wav',
+        '/assets/sample/bass/F.wav',
+        '/assets/sample/bass/G.wav'
     ],
 
     symbols: [

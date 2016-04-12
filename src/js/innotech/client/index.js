@@ -14,10 +14,14 @@ require('../Sequencer');
 require('../config/config');
 
 var page = $(location).attr('pathname');
+
 if (page === "/") {
+    var instrument = "";
 
-    function init() {
+    $(document).on('ready', initPage);
 
+    function initPage() {
+        var participants = [];
 
         var serverBaseUrl = document.domain;
 
@@ -65,8 +69,9 @@ if (page === "/") {
          the participants section and display the connected clients.
          Note we are assigning the sessionId as the span ID.
          */
-        socket.on('newConnection', function (data) {
-            updateParticipants(data.participants);
+        socket.on('newConnection', function (user) {
+            participants.push(user);
+            updateParticipants(participants);
         });
 
         /*
@@ -74,15 +79,7 @@ if (page === "/") {
          remove the span element from the participants element
          */
         socket.on('userDisconnected', function (data) {
-            $('#' + data.id).remove();
-        });
-
-        /*
-         When the server fires the "nameChanged" event, it means we
-         must update the span with the given ID accordingly
-         */
-        socket.on('nameChanged', function (data) {
-            $('#' + data.id).html(data.name + ' ' + (data.id === sessionId ? '(You)' : '') + '<br />');
+            participants = _.without(participants, _.findWhere(participants, {id: data.id}));
         });
 
         /*
@@ -101,20 +98,17 @@ if (page === "/") {
         socket.on('error', function (reason) {
             console.log('Unable to connect to server', reason);
         });
+
+        initInstrumentSelection();
     }
 
-    $(document).on('ready', init);
+    function initJamSession() {
 
-    (function () {
+        changePage();
 
         var multiSequencer;
 
-        // Preload assets
-        // -------------------------------
-
         var assets = [
-
-            'texture/slices_eyes.png',
 
             'image/ui_congas1.svg',
             'image/ui_congas2.svg',
@@ -143,49 +137,31 @@ if (page === "/") {
             init: init
         });
 
-
-        // Main
-        // -------------------------------
-
         function init() {
 
             var sequencers = [];
-
-            // Collect character pairs and sequencers
-            // -------------------------------
+            var configKeys = [];
 
             for (var key in window.musicbox.config) {
 
                 var config = window.musicbox.config[key];
-
-                // Make sequencers
-                // -------------------------------
+                configKeys.push(key);
 
                 var sequencerConfig = config.sequencer;
-
 
                 var sequencer = new window.musicbox.Sequencer(sequencerConfig);
 
                 sequencers.push(sequencer);
-
             }
 
-
-            // Make multi sequencer
-            // -------------------------------
-
             multiSequencer = new window.musicbox.MultiSequencer(sequencers);
+            if (instrument !== "") {
+                multiSequencer.setActiveSequencer(sequencers[configKeys.indexOf(instrument)]);
+            }
 
             container.appendChild(multiSequencer.domElement);
 
-
-            // Get going!
-            // -------------------------------
-
             Tone.Buffer.on('load', function () {
-
-                // I hate having more async in here as that's what aaf.init is
-                // supposed to get rid of, but it don't quite work w/ Tone yet
 
                 aaf.common.loop.add(update);
                 aaf.common.loop.start();
@@ -194,17 +170,23 @@ if (page === "/") {
                 window.parent.postMessage('ready', '*');
 
             });
-
-
-        };
-
-
-        function update() {
-
-            multiSequencer.update();
-
         }
 
+        function update() {
+            multiSequencer.update();
+        }
+    }
 
-    })();
+    function initInstrumentSelection() {
+        $('button.choose').on('click', function () {
+            instrument = $(this).data('type');
+            $('#sequencePage').addClass('instrument-' + instrument);
+            initJamSession();
+        });
+    }
+
+    function changePage() {
+        $('#selectionPage').toggleClass('hide');
+        $('#sequencePage').toggleClass('hide');
+    }
 }

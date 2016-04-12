@@ -1,4 +1,5 @@
-require('./conga.sequencer');
-require('./kit.sequencer');
-require('./timpani.sequencer');
-require('./woodblock.sequencer');
+require('./drums.sequencer');
+require('./drumsAlt.sequencer');
+require('./bass.sequencer');
+require('./guitar.sequencer');
+require('./random.sequencer');
