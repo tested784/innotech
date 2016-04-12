@@ -5,10 +5,10 @@ window.musicbox.config.drumsAlt.sequencer = {
     bpm: 100,
 
     samples: [
-        '/assets/sample/drumsAlt/HH.wav',
-        '/assets/sample/drumsAlt/Crash.wav',
-        '/assets/sample/drumsAlt/Snare.wav',
-        '/assets/sample/drumsAlt/Kick.wav'
+        '/assets/sample/drumsAlt/HH.mp3',
+        '/assets/sample/drumsAlt/Crash.mp3',
+        '/assets/sample/drumsAlt/Snare.mp3',
+        '/assets/sample/drumsAlt/Kick.mp3'
     ],
 
     symbols: [

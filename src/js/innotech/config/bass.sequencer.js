@@ -5,9 +5,9 @@ window.musicbox.config.bass.sequencer = {
     bpm: 100,
 
     samples: [
-        '/assets/sample/bass/C.wav',
-        '/assets/sample/bass/F.wav',
-        '/assets/sample/bass/G.wav'
+        '/assets/sample/bass/C.mp3',
+        '/assets/sample/bass/F.mp3',
+        '/assets/sample/bass/G.mp3'
     ],
 
     symbols: [

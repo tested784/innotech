@@ -5,11 +5,11 @@ window.musicbox.config.random.sequencer = {
     bpm: 100,
 
     samples: [
-        '/assets/sample/random/BiebBieb.wav',
-        '/assets/sample/random/BliepBliep.wav',
-        '/assets/sample/random/Hee.wav',
-        '/assets/sample/random/TA.wav',
-        '/assets/sample/random/Taaaa.wav'
+        '/assets/sample/random/BiebBieb.mp3',
+        '/assets/sample/random/BliepBliep.mp3',
+        '/assets/sample/random/Hee.mp3',
+        '/assets/sample/random/TA.mp3',
+        '/assets/sample/random/Taaaa.mp3'
     ],
 
     symbols: [

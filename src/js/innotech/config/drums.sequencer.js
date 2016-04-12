@@ -5,9 +5,9 @@ window.musicbox.config.drums.sequencer = {
     bpm: 100,
 
     samples: [
-        '/assets/sample/drums/HH.wav',
-        '/assets/sample/drums/Snare.wav',
-        '/assets/sample/drums/Kick.wav'
+        '/assets/sample/drums/HH.mp3',
+        '/assets/sample/drums/Snare.mp3',
+        '/assets/sample/drums/Kick.mp3'
     ],
 
     symbols: [
