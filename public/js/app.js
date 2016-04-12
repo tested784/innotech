@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("/**\n * JS\n */\n__webpack_require__(1);\n\n/**\n *  SASS/SCSS\n */\n__webpack_require__(68);\n\n/**\n *  IMG\n */\n\n// zorgt ervoor dat alle images worden gecompiled\n__webpack_require__(71);\n\n/**\n *  SVG\n */\n\n// zorgt ervoor dat alle svg's worden gecompiled naar 1 sprite, die automatisch in de HTML wordt geinject\nvar files = __webpack_require__(128);\nfiles.keys().forEach(files);\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/js/app.js\n ** module id = 0\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/js/app.js?");
+	eval("/**\n * JS\n */\n__webpack_require__(1);\n\n/**\n *  SASS/SCSS\n */\n__webpack_require__(68);\n\n/**\n *  IMG\n */\n\n// zorgt ervoor dat alle images worden gecompiled\n__webpack_require__(71);\n\n/**\n *  SVG\n */\n\n// zorgt ervoor dat alle svg's worden gecompiled naar 1 sprite, die automatisch in de HTML wordt geinject\nvar files = __webpack_require__(75);\nfiles.keys().forEach(files);\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/js/app.js\n ** module id = 0\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/js/app.js?");
 
 /***/ },
 /* 1 */
@@ -470,201 +470,145 @@
 /* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("var map = {\n\t\"./bass.png\": 148,\n\t\"./drums.png\": 149,\n\t\"./guitar.png\": 150\n};\nfunction webpackContext(req) {\n\treturn __webpack_require__(webpackContextResolve(req));\n};\nfunction webpackContextResolve(req) {\n\treturn map[req] || (function() { throw new Error(\"Cannot find module '\" + req + \"'.\") }());\n};\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = 71;\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/img \\.(jpe?g|png|gif)$\n ** module id = 71\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/img_\\.(jpe?");
+	eval("var map = {\n\t\"./bass.png\": 72,\n\t\"./drums.png\": 73,\n\t\"./guitar.png\": 74\n};\nfunction webpackContext(req) {\n\treturn __webpack_require__(webpackContextResolve(req));\n};\nfunction webpackContextResolve(req) {\n\treturn map[req] || (function() { throw new Error(\"Cannot find module '\" + req + \"'.\") }());\n};\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = 71;\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/img \\.(jpe?g|png|gif)$\n ** module id = 71\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/img_\\.(jpe?");
 
 /***/ },
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("var map = {\n\t\"./ui_about.svg\": 129,\n\t\"./ui_arrow.svg\": 132,\n\t\"./ui_congas1.svg\": 133,\n\t\"./ui_congas2.svg\": 134,\n\t\"./ui_congas3.svg\": 135,\n\t\"./ui_drums1.svg\": 136,\n\t\"./ui_drums2.svg\": 137,\n\t\"./ui_drums3.svg\": 138,\n\t\"./ui_menu.svg\": 139,\n\t\"./ui_pause.svg\": 140,\n\t\"./ui_play.svg\": 141,\n\t\"./ui_timpani1.svg\": 142,\n\t\"./ui_timpani2.svg\": 143,\n\t\"./ui_timpani3.svg\": 144,\n\t\"./ui_woodblocks1.svg\": 145,\n\t\"./ui_woodblocks2.svg\": 146,\n\t\"./ui_woodblocks3.svg\": 147\n};\nfunction webpackContext(req) {\n\treturn __webpack_require__(webpackContextResolve(req));\n};\nfunction webpackContextResolve(req) {\n\treturn map[req] || (function() { throw new Error(\"Cannot find module '\" + req + \"'.\") }());\n};\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = 128;\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg ^\\.\\/.*\\.svg$\n ** module id = 128\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg_^\\.\\/.*\\.svg$?");
+	eval("module.exports = __webpack_require__.p + \"img/bass.png\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/img/bass.png\n ** module id = 72\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/img/bass.png?");
 
 /***/ },
-/* 129 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"506 -16 80 80\\\" id=\\\"ui_about\\\"> <circle fill=\\\"#707070\\\" cx=\\\"546\\\" cy=\\\"24\\\" r=\\\"25.7\\\"/> <g> <path fill=\\\"#FFFFFF\\\" d=\\\"M542.2,15.2c1-0.6,2.2-0.9,3.6-0.9c1.9,0,3.4,0.4,4.7,1.3c1.2,0.9,1.9,2.2,1.9,4c0,1.1-0.3,2-0.8,2.7\\r\\n\\t\\tc-0.3,0.4-0.9,1-1.8,1.7l-0.9,0.7c-0.5,0.4-0.8,0.8-1,1.3c-0.1,0.3-0.2,0.8-0.2,1.5h-3.4c0-1.4,0.2-2.4,0.4-2.9\\r\\n\\t\\tc0.2-0.5,0.8-1.1,1.7-1.8l0.9-0.7c0.3-0.2,0.5-0.5,0.7-0.7c0.3-0.5,0.5-1,0.5-1.5c0-0.6-0.2-1.2-0.6-1.7c-0.4-0.5-1-0.8-2-0.8\\r\\n\\t\\tc-1,0-1.6,0.3-2,1s-0.6,1.3-0.6,2h-3.6C539.9,17.9,540.7,16.2,542.2,15.2z M544.3,30.2h3.7v3.6h-3.7V30.2z\\\"/> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_about\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_about.svg\n ** module id = 129\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_about.svg?");
+	eval("module.exports = __webpack_require__.p + \"img/drums.png\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/img/drums.png\n ** module id = 73\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/img/drums.png?");
 
 /***/ },
-/* 130 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval("var Sprite = __webpack_require__(131);\nvar globalSprite = new Sprite();\n\nif (document.body) {\n  globalSprite.elem = globalSprite.render(document.body);\n} else {\n  document.addEventListener('DOMContentLoaded', function () {\n    globalSprite.elem = globalSprite.render(document.body);\n  }, false);\n}\n\nmodule.exports = globalSprite;\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ./~/svg-sprite-loader/lib/web/global-sprite.js\n ** module id = 130\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./~/svg-sprite-loader/lib/web/global-sprite.js?");
+	eval("module.exports = __webpack_require__.p + \"img/guitar.png\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/img/guitar.png\n ** module id = 74\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/img/guitar.png?");
 
 /***/ },
-/* 131 */
+/* 75 */
+/***/ function(module, exports, __webpack_require__) {
+
+	eval("var map = {\n\t\"./ui_about.svg\": 76,\n\t\"./ui_arrow.svg\": 79,\n\t\"./ui_congas1.svg\": 80,\n\t\"./ui_congas2.svg\": 81,\n\t\"./ui_congas3.svg\": 82,\n\t\"./ui_drums1.svg\": 83,\n\t\"./ui_drums2.svg\": 84,\n\t\"./ui_drums3.svg\": 85,\n\t\"./ui_menu.svg\": 86,\n\t\"./ui_pause.svg\": 87,\n\t\"./ui_play.svg\": 88,\n\t\"./ui_timpani1.svg\": 89,\n\t\"./ui_timpani2.svg\": 90,\n\t\"./ui_timpani3.svg\": 91,\n\t\"./ui_woodblocks1.svg\": 92,\n\t\"./ui_woodblocks2.svg\": 93,\n\t\"./ui_woodblocks3.svg\": 94\n};\nfunction webpackContext(req) {\n\treturn __webpack_require__(webpackContextResolve(req));\n};\nfunction webpackContextResolve(req) {\n\treturn map[req] || (function() { throw new Error(\"Cannot find module '\" + req + \"'.\") }());\n};\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = 75;\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg ^\\.\\/.*\\.svg$\n ** module id = 75\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg_^\\.\\/.*\\.svg$?");
+
+/***/ },
+/* 76 */
+/***/ function(module, exports, __webpack_require__) {
+
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"506 -16 80 80\\\" id=\\\"ui_about\\\"> <circle fill=\\\"#707070\\\" cx=\\\"546\\\" cy=\\\"24\\\" r=\\\"25.7\\\"/> <g> <path fill=\\\"#FFFFFF\\\" d=\\\"M542.2,15.2c1-0.6,2.2-0.9,3.6-0.9c1.9,0,3.4,0.4,4.7,1.3c1.2,0.9,1.9,2.2,1.9,4c0,1.1-0.3,2-0.8,2.7\\r\\n\\t\\tc-0.3,0.4-0.9,1-1.8,1.7l-0.9,0.7c-0.5,0.4-0.8,0.8-1,1.3c-0.1,0.3-0.2,0.8-0.2,1.5h-3.4c0-1.4,0.2-2.4,0.4-2.9\\r\\n\\t\\tc0.2-0.5,0.8-1.1,1.7-1.8l0.9-0.7c0.3-0.2,0.5-0.5,0.7-0.7c0.3-0.5,0.5-1,0.5-1.5c0-0.6-0.2-1.2-0.6-1.7c-0.4-0.5-1-0.8-2-0.8\\r\\n\\t\\tc-1,0-1.6,0.3-2,1s-0.6,1.3-0.6,2h-3.6C539.9,17.9,540.7,16.2,542.2,15.2z M544.3,30.2h3.7v3.6h-3.7V30.2z\\\"/> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_about\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_about.svg\n ** module id = 76\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_about.svg?");
+
+/***/ },
+/* 77 */
+/***/ function(module, exports, __webpack_require__) {
+
+	eval("var Sprite = __webpack_require__(78);\nvar globalSprite = new Sprite();\n\nif (document.body) {\n  globalSprite.elem = globalSprite.render(document.body);\n} else {\n  document.addEventListener('DOMContentLoaded', function () {\n    globalSprite.elem = globalSprite.render(document.body);\n  }, false);\n}\n\nmodule.exports = globalSprite;\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ./~/svg-sprite-loader/lib/web/global-sprite.js\n ** module id = 77\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./~/svg-sprite-loader/lib/web/global-sprite.js?");
+
+/***/ },
+/* 78 */
 /***/ function(module, exports) {
 
-	eval("/**\n * List of SVG attributes to fix url target in them\n * @type {string[]}\n */\nvar fixAttributes = [\n  'clipPath',\n  'colorProfile',\n  'src',\n  'cursor',\n  'fill',\n  'filter',\n  'marker',\n  'markerStart',\n  'markerMid',\n  'markerEnd',\n  'mask',\n  'stroke'\n];\n\n/**\n * Query to find'em\n * @type {string}\n */\nvar fixAttributesQuery = '[' + fixAttributes.join('],[') + ']';\n/**\n * @type {RegExp}\n */\nvar URI_FUNC_REGEX = /^url\\((.*)\\)$/;\n\n/**\n * Convert array-like to array\n * @param {Object} arrayLike\n * @returns {Array.<*>}\n */\nfunction arrayFrom(arrayLike) {\n  return Array.prototype.slice.call(arrayLike, 0);\n}\n\n/**\n * Handles forbidden symbols which cannot be directly used inside attributes with url(...) content.\n * Adds leading slash for the brackets\n * @param {string} url\n * @return {string} encoded url\n */\nfunction encodeUrlForEmbedding(url) {\n  return url.replace(/\\(|\\)/g, \"\\\\$&\");\n}\n\n/**\n * Replaces prefix in `url()` functions\n * @param {Element} svg\n * @param {string} currentUrlPrefix\n * @param {string} newUrlPrefix\n */\nfunction baseUrlWorkAround(svg, currentUrlPrefix, newUrlPrefix) {\n  var nodes = svg.querySelectorAll(fixAttributesQuery);\n\n  if (!nodes) {\n    return;\n  }\n\n  arrayFrom(nodes).forEach(function (node) {\n    if (!node.attributes) {\n      return;\n    }\n\n    arrayFrom(node.attributes).forEach(function (attribute) {\n      if (fixAttributes.indexOf(attribute.localName) !== -1) {\n        var match = URI_FUNC_REGEX.exec(node.getAttribute(attribute.localName));\n\n        // Do not touch urls with unexpected prefix\n        if (match && match[1].indexOf(currentUrlPrefix) === 0) {\n          var referenceUrl = encodeUrlForEmbedding(newUrlPrefix + match[1].split(currentUrlPrefix)[1]);\n          node.setAttribute(attribute.localName, 'url(' + referenceUrl + ')');\n        }\n      }\n    });\n  });\n}\n\n/**\n * Because of Firefox bug #353575 gradients and patterns don't work if they are within a symbol.\n * To workaround this we move the gradient definition outside the symbol element\n * @see https://bugzilla.mozilla.org/show_bug.cgi?id=353575\n * @param {Element} svg\n */\nvar FirefoxSymbolBugWorkaround = function (svg) {\n  var defs = svg.querySelector('defs');\n\n  var moveToDefsElems = svg.querySelectorAll('symbol linearGradient, symbol radialGradient, symbol pattern');\n  for (var i = 0, len = moveToDefsElems.length; i < len; i++) {\n    defs.appendChild(moveToDefsElems[i]);\n  }\n};\n\n/**\n * @type {string}\n */\nvar DEFAULT_URI_PREFIX = '#';\n\n/**\n * @type {string}\n */\nvar xLinkHref = 'xlink:href';\n/**\n * @type {string}\n */\nvar xLinkNS = 'http://www.w3.org/1999/xlink';\n/**\n * @type {string}\n */\nvar svgOpening = '<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"' + xLinkNS + '\"';\n/**\n * @type {string}\n */\nvar svgClosing = '</svg>';\n/**\n * @type {string}\n */\nvar contentPlaceHolder = '{content}';\n\n/**\n * Representation of SVG sprite\n * @constructor\n */\nfunction Sprite() {\n  var baseElement = document.getElementsByTagName('base')[0];\n  var currentUrl = window.location.href.split('#')[0];\n  var baseUrl = baseElement && baseElement.href;\n  this.urlPrefix = baseUrl && baseUrl !== currentUrl ? currentUrl + DEFAULT_URI_PREFIX : DEFAULT_URI_PREFIX;\n\n  this.content = [];\n  this.isFirefox = /firefox\\//i.test(navigator.userAgent);\n  this.isIE = /(trident|edge)\\//i.test(navigator.userAgent);\n\n  if (!this.isIE && baseUrl) {\n    window.addEventListener('spriteLoaderLocationUpdated', function (e) {\n      var currentPrefix = this.urlPrefix;\n      var newUrlPrefix = e.detail.newUrl.split(DEFAULT_URI_PREFIX)[0] + DEFAULT_URI_PREFIX;\n      baseUrlWorkAround(this.svg, currentPrefix, newUrlPrefix);\n      this.urlPrefix = newUrlPrefix;\n\n      if (this.isFirefox) {\n        var nodes = arrayFrom(document.querySelectorAll('use[*|href]'));\n        nodes.forEach(function (node) {\n          var href = node.getAttribute(xLinkHref);\n          if (href && href.indexOf(currentPrefix) === 0) {\n            node.setAttributeNS(xLinkNS, xLinkHref, newUrlPrefix + href.split(DEFAULT_URI_PREFIX)[1]);\n          }\n        });\n      }\n    }.bind(this));\n  }\n}\n\nSprite.styles = ['position:absolute', 'width:0', 'height:0', 'visibility:hidden'];\n\nSprite.spriteTemplate = svgOpening + ' style=\"'+ Sprite.styles.join(';') +'\"><defs>' + contentPlaceHolder + '</defs>' + svgClosing;\nSprite.symbolTemplate = svgOpening + '>' + contentPlaceHolder + svgClosing;\n\n/**\n * @type {Array<String>}\n */\nSprite.prototype.content = null;\n\n/**\n * @param {String} content\n * @param {String} id\n */\nSprite.prototype.add = function (content, id) {\n  if (this.svg) {\n    this.appendSymbol(content);\n  }\n\n  this.content.push(content);\n\n  return DEFAULT_URI_PREFIX + id;\n};\n\n/**\n *\n * @param content\n * @param template\n * @returns {Element}\n */\nSprite.prototype.wrapSVG = function (content, template) {\n  var svgString = template.replace(contentPlaceHolder, content);\n\n  var svg = new DOMParser().parseFromString(svgString, 'image/svg+xml').documentElement;\n\n  if (!this.isIE && this.urlPrefix) {\n    baseUrlWorkAround(svg, DEFAULT_URI_PREFIX, this.urlPrefix);\n  }\n\n  return svg;\n};\n\nSprite.prototype.appendSymbol = function (content) {\n  var symbol = this.wrapSVG(content, Sprite.symbolTemplate).childNodes[0];\n\n  this.svg.querySelector('defs').appendChild(symbol);\n  if (this.isFirefox) {\n    FirefoxSymbolBugWorkaround(this.svg);\n  }\n};\n\n/**\n * @returns {String}\n */\nSprite.prototype.toString = function () {\n  var wrapper = document.createElement('div');\n  wrapper.appendChild(this.render());\n  return wrapper.innerHTML;\n};\n\n/**\n * @param {HTMLElement} [target]\n * @param {Boolean} [prepend=true]\n * @returns {HTMLElement} Rendered sprite node\n */\nSprite.prototype.render = function (target, prepend) {\n  target = target || null;\n  prepend = typeof prepend === 'boolean' ? prepend : true;\n\n  var svg = this.wrapSVG(this.content.join(''), Sprite.spriteTemplate);\n\n  if (this.isFirefox) {\n    FirefoxSymbolBugWorkaround(svg);\n  }\n\n  if (target) {\n    if (prepend && target.childNodes[0]) {\n      target.insertBefore(svg, target.childNodes[0]);\n    } else {\n      target.appendChild(svg);\n    }\n  }\n\n  this.svg = svg;\n\n  return svg;\n};\n\nmodule.exports = Sprite;\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ./~/svg-sprite-loader/lib/web/sprite.js\n ** module id = 131\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./~/svg-sprite-loader/lib/web/sprite.js?");
+	eval("/**\n * List of SVG attributes to fix url target in them\n * @type {string[]}\n */\nvar fixAttributes = [\n  'clipPath',\n  'colorProfile',\n  'src',\n  'cursor',\n  'fill',\n  'filter',\n  'marker',\n  'markerStart',\n  'markerMid',\n  'markerEnd',\n  'mask',\n  'stroke'\n];\n\n/**\n * Query to find'em\n * @type {string}\n */\nvar fixAttributesQuery = '[' + fixAttributes.join('],[') + ']';\n/**\n * @type {RegExp}\n */\nvar URI_FUNC_REGEX = /^url\\((.*)\\)$/;\n\n/**\n * Convert array-like to array\n * @param {Object} arrayLike\n * @returns {Array.<*>}\n */\nfunction arrayFrom(arrayLike) {\n  return Array.prototype.slice.call(arrayLike, 0);\n}\n\n/**\n * Handles forbidden symbols which cannot be directly used inside attributes with url(...) content.\n * Adds leading slash for the brackets\n * @param {string} url\n * @return {string} encoded url\n */\nfunction encodeUrlForEmbedding(url) {\n  return url.replace(/\\(|\\)/g, \"\\\\$&\");\n}\n\n/**\n * Replaces prefix in `url()` functions\n * @param {Element} svg\n * @param {string} currentUrlPrefix\n * @param {string} newUrlPrefix\n */\nfunction baseUrlWorkAround(svg, currentUrlPrefix, newUrlPrefix) {\n  var nodes = svg.querySelectorAll(fixAttributesQuery);\n\n  if (!nodes) {\n    return;\n  }\n\n  arrayFrom(nodes).forEach(function (node) {\n    if (!node.attributes) {\n      return;\n    }\n\n    arrayFrom(node.attributes).forEach(function (attribute) {\n      if (fixAttributes.indexOf(attribute.localName) !== -1) {\n        var match = URI_FUNC_REGEX.exec(node.getAttribute(attribute.localName));\n\n        // Do not touch urls with unexpected prefix\n        if (match && match[1].indexOf(currentUrlPrefix) === 0) {\n          var referenceUrl = encodeUrlForEmbedding(newUrlPrefix + match[1].split(currentUrlPrefix)[1]);\n          node.setAttribute(attribute.localName, 'url(' + referenceUrl + ')');\n        }\n      }\n    });\n  });\n}\n\n/**\n * Because of Firefox bug #353575 gradients and patterns don't work if they are within a symbol.\n * To workaround this we move the gradient definition outside the symbol element\n * @see https://bugzilla.mozilla.org/show_bug.cgi?id=353575\n * @param {Element} svg\n */\nvar FirefoxSymbolBugWorkaround = function (svg) {\n  var defs = svg.querySelector('defs');\n\n  var moveToDefsElems = svg.querySelectorAll('symbol linearGradient, symbol radialGradient, symbol pattern');\n  for (var i = 0, len = moveToDefsElems.length; i < len; i++) {\n    defs.appendChild(moveToDefsElems[i]);\n  }\n};\n\n/**\n * @type {string}\n */\nvar DEFAULT_URI_PREFIX = '#';\n\n/**\n * @type {string}\n */\nvar xLinkHref = 'xlink:href';\n/**\n * @type {string}\n */\nvar xLinkNS = 'http://www.w3.org/1999/xlink';\n/**\n * @type {string}\n */\nvar svgOpening = '<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"' + xLinkNS + '\"';\n/**\n * @type {string}\n */\nvar svgClosing = '</svg>';\n/**\n * @type {string}\n */\nvar contentPlaceHolder = '{content}';\n\n/**\n * Representation of SVG sprite\n * @constructor\n */\nfunction Sprite() {\n  var baseElement = document.getElementsByTagName('base')[0];\n  var currentUrl = window.location.href.split('#')[0];\n  var baseUrl = baseElement && baseElement.href;\n  this.urlPrefix = baseUrl && baseUrl !== currentUrl ? currentUrl + DEFAULT_URI_PREFIX : DEFAULT_URI_PREFIX;\n\n  this.content = [];\n  this.isFirefox = /firefox\\//i.test(navigator.userAgent);\n  this.isIE = /(trident|edge)\\//i.test(navigator.userAgent);\n\n  if (!this.isIE && baseUrl) {\n    window.addEventListener('spriteLoaderLocationUpdated', function (e) {\n      var currentPrefix = this.urlPrefix;\n      var newUrlPrefix = e.detail.newUrl.split(DEFAULT_URI_PREFIX)[0] + DEFAULT_URI_PREFIX;\n      baseUrlWorkAround(this.svg, currentPrefix, newUrlPrefix);\n      this.urlPrefix = newUrlPrefix;\n\n      if (this.isFirefox) {\n        var nodes = arrayFrom(document.querySelectorAll('use[*|href]'));\n        nodes.forEach(function (node) {\n          var href = node.getAttribute(xLinkHref);\n          if (href && href.indexOf(currentPrefix) === 0) {\n            node.setAttributeNS(xLinkNS, xLinkHref, newUrlPrefix + href.split(DEFAULT_URI_PREFIX)[1]);\n          }\n        });\n      }\n    }.bind(this));\n  }\n}\n\nSprite.styles = ['position:absolute', 'width:0', 'height:0', 'visibility:hidden'];\n\nSprite.spriteTemplate = svgOpening + ' style=\"'+ Sprite.styles.join(';') +'\"><defs>' + contentPlaceHolder + '</defs>' + svgClosing;\nSprite.symbolTemplate = svgOpening + '>' + contentPlaceHolder + svgClosing;\n\n/**\n * @type {Array<String>}\n */\nSprite.prototype.content = null;\n\n/**\n * @param {String} content\n * @param {String} id\n */\nSprite.prototype.add = function (content, id) {\n  if (this.svg) {\n    this.appendSymbol(content);\n  }\n\n  this.content.push(content);\n\n  return DEFAULT_URI_PREFIX + id;\n};\n\n/**\n *\n * @param content\n * @param template\n * @returns {Element}\n */\nSprite.prototype.wrapSVG = function (content, template) {\n  var svgString = template.replace(contentPlaceHolder, content);\n\n  var svg = new DOMParser().parseFromString(svgString, 'image/svg+xml').documentElement;\n\n  if (!this.isIE && this.urlPrefix) {\n    baseUrlWorkAround(svg, DEFAULT_URI_PREFIX, this.urlPrefix);\n  }\n\n  return svg;\n};\n\nSprite.prototype.appendSymbol = function (content) {\n  var symbol = this.wrapSVG(content, Sprite.symbolTemplate).childNodes[0];\n\n  this.svg.querySelector('defs').appendChild(symbol);\n  if (this.isFirefox) {\n    FirefoxSymbolBugWorkaround(this.svg);\n  }\n};\n\n/**\n * @returns {String}\n */\nSprite.prototype.toString = function () {\n  var wrapper = document.createElement('div');\n  wrapper.appendChild(this.render());\n  return wrapper.innerHTML;\n};\n\n/**\n * @param {HTMLElement} [target]\n * @param {Boolean} [prepend=true]\n * @returns {HTMLElement} Rendered sprite node\n */\nSprite.prototype.render = function (target, prepend) {\n  target = target || null;\n  prepend = typeof prepend === 'boolean' ? prepend : true;\n\n  var svg = this.wrapSVG(this.content.join(''), Sprite.spriteTemplate);\n\n  if (this.isFirefox) {\n    FirefoxSymbolBugWorkaround(svg);\n  }\n\n  if (target) {\n    if (prepend && target.childNodes[0]) {\n      target.insertBefore(svg, target.childNodes[0]);\n    } else {\n      target.appendChild(svg);\n    }\n  }\n\n  this.svg = svg;\n\n  return svg;\n};\n\nmodule.exports = Sprite;\n\n\n/*****************\n ** WEBPACK FOOTER\n ** ./~/svg-sprite-loader/lib/web/sprite.js\n ** module id = 78\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///./~/svg-sprite-loader/lib/web/sprite.js?");
 
 /***/ },
-/* 132 */
+/* 79 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"0 0 600 800\\\" id=\\\"ui_arrow\\\"> <polygon fill=\\\"#707070\\\" points=\\\"300.8,294.7 285.4,310.1 346.9,371.6 209.1,371.6 209.1,393.4 346.9,393.4 284.1,456.2 299.5,471.6 \\r\\n\\t388.6,382.5 \\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_arrow\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_arrow.svg\n ** module id = 132\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_arrow.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"0 0 600 800\\\" id=\\\"ui_arrow\\\"> <polygon fill=\\\"#707070\\\" points=\\\"300.8,294.7 285.4,310.1 346.9,371.6 209.1,371.6 209.1,393.4 346.9,393.4 284.1,456.2 299.5,471.6 \\r\\n\\t388.6,382.5 \\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_arrow\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_arrow.svg\n ** module id = 79\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_arrow.svg?");
 
 /***/ },
-/* 133 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"1313.8 -345.2 80 80\\\" id=\\\"ui_congas1\\\"> <g> <g> <path fill=\\\"#2F3B44\\\" d=\\\"M1375.6-285.7c0.2,2.1-1.4,3.9-3.5,3.9h-35.4c-2.1,0-3.7-1.7-3.5-3.9l3.9-38.9c0.2-2.1,2.1-3.9,4.3-3.9h26\\r\\n\\t\\t\\tc2.1,0,4.1,1.7,4.3,3.9L1375.6-285.7z\\\"/> </g> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_congas1\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_congas1.svg\n ** module id = 133\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_congas1.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"1313.8 -345.2 80 80\\\" id=\\\"ui_congas1\\\"> <g> <g> <path fill=\\\"#2F3B44\\\" d=\\\"M1375.6-285.7c0.2,2.1-1.4,3.9-3.5,3.9h-35.4c-2.1,0-3.7-1.7-3.5-3.9l3.9-38.9c0.2-2.1,2.1-3.9,4.3-3.9h26\\r\\n\\t\\t\\tc2.1,0,4.1,1.7,4.3,3.9L1375.6-285.7z\\\"/> </g> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_congas1\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_congas1.svg\n ** module id = 80\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_congas1.svg?");
 
 /***/ },
-/* 134 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"1312.3 -246.1 80 80\\\" id=\\\"ui_congas2\\\"> <circle fill=\\\"#FFBC00\\\" cx=\\\"1354.4\\\" cy=\\\"-205.2\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_congas2\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_congas2.svg\n ** module id = 134\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_congas2.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"1312.3 -246.1 80 80\\\" id=\\\"ui_congas2\\\"> <circle fill=\\\"#FFBC00\\\" cx=\\\"1354.4\\\" cy=\\\"-205.2\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_congas2\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_congas2.svg\n ** module id = 81\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_congas2.svg?");
 
 /***/ },
-/* 135 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"1317.4 -151 80 80\\\" id=\\\"ui_congas3\\\"> <circle fill=\\\"#B5581A\\\" cx=\\\"1357.4\\\" cy=\\\"-111\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_congas3\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_congas3.svg\n ** module id = 135\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_congas3.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"1317.4 -151 80 80\\\" id=\\\"ui_congas3\\\"> <circle fill=\\\"#B5581A\\\" cx=\\\"1357.4\\\" cy=\\\"-111\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_congas3\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_congas3.svg\n ** module id = 82\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_congas3.svg?");
 
 /***/ },
-/* 136 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"874.6 -343.9 80 80\\\" id=\\\"ui_drums1\\\"> <rect x=\\\"897.7\\\" y=\\\"-320.8\\\" transform=\\\"matrix(0.7071 -0.7071 0.7071 0.7071 482.7773 557.7047)\\\" fill=\\\"#FFBC00\\\" width=\\\"33.8\\\" height=\\\"33.8\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_drums1\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_drums1.svg\n ** module id = 136\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_drums1.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"874.6 -343.9 80 80\\\" id=\\\"ui_drums1\\\"> <rect x=\\\"897.7\\\" y=\\\"-320.8\\\" transform=\\\"matrix(0.7071 -0.7071 0.7071 0.7071 482.7773 557.7047)\\\" fill=\\\"#FFBC00\\\" width=\\\"33.8\\\" height=\\\"33.8\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_drums1\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_drums1.svg\n ** module id = 83\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_drums1.svg?");
 
 /***/ },
-/* 137 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"873.1 -244.2 80 80\\\" id=\\\"ui_drums2\\\"> <circle fill=\\\"#00B0FF\\\" cx=\\\"913.1\\\" cy=\\\"-204.2\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_drums2\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_drums2.svg\n ** module id = 137\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_drums2.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"873.1 -244.2 80 80\\\" id=\\\"ui_drums2\\\"> <circle fill=\\\"#00B0FF\\\" cx=\\\"913.1\\\" cy=\\\"-204.2\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_drums2\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_drums2.svg\n ** module id = 84\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_drums2.svg?");
 
 /***/ },
-/* 138 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"874.9 -145.2 80 80\\\" id=\\\"ui_drums3\\\"> <circle fill=\\\"#FE632D\\\" cx=\\\"914.9\\\" cy=\\\"-105.2\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_drums3\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_drums3.svg\n ** module id = 138\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_drums3.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"874.9 -145.2 80 80\\\" id=\\\"ui_drums3\\\"> <circle fill=\\\"#FE632D\\\" cx=\\\"914.9\\\" cy=\\\"-105.2\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_drums3\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_drums3.svg\n ** module id = 85\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_drums3.svg?");
 
 /***/ },
-/* 139 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"512 -116 80 80\\\" id=\\\"ui_menu\\\"> <g> <g> <rect x=\\\"530.6\\\" y=\\\"-92.2\\\" fill=\\\"#707070\\\" width=\\\"42.7\\\" height=\\\"5.6\\\"/> </g> <g> <rect x=\\\"530.6\\\" y=\\\"-78.8\\\" fill=\\\"#707070\\\" width=\\\"42.7\\\" height=\\\"5.6\\\"/> </g> <g> <rect x=\\\"530.6\\\" y=\\\"-65.4\\\" fill=\\\"#707070\\\" width=\\\"42.7\\\" height=\\\"5.6\\\"/> </g> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_menu\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_menu.svg\n ** module id = 139\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_menu.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"512 -116 80 80\\\" id=\\\"ui_menu\\\"> <g> <g> <rect x=\\\"530.6\\\" y=\\\"-92.2\\\" fill=\\\"#707070\\\" width=\\\"42.7\\\" height=\\\"5.6\\\"/> </g> <g> <rect x=\\\"530.6\\\" y=\\\"-78.8\\\" fill=\\\"#707070\\\" width=\\\"42.7\\\" height=\\\"5.6\\\"/> </g> <g> <rect x=\\\"530.6\\\" y=\\\"-65.4\\\" fill=\\\"#707070\\\" width=\\\"42.7\\\" height=\\\"5.6\\\"/> </g> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_menu\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_menu.svg\n ** module id = 86\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_menu.svg?");
 
 /***/ },
-/* 140 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"134 -15.8 80 80\\\" id=\\\"ui_pause\\\"> <g> <rect x=\\\"163.6\\\" y=\\\"10\\\" fill=\\\"#707070\\\" width=\\\"7.5\\\" height=\\\"28\\\"/> <rect x=\\\"176.9\\\" y=\\\"10\\\" fill=\\\"#707070\\\" width=\\\"7.5\\\" height=\\\"28\\\"/> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_pause\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_pause.svg\n ** module id = 140\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_pause.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"134 -15.8 80 80\\\" id=\\\"ui_pause\\\"> <g> <rect x=\\\"163.6\\\" y=\\\"10\\\" fill=\\\"#707070\\\" width=\\\"7.5\\\" height=\\\"28\\\"/> <rect x=\\\"176.9\\\" y=\\\"10\\\" fill=\\\"#707070\\\" width=\\\"7.5\\\" height=\\\"28\\\"/> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_pause\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_pause.svg\n ** module id = 87\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_pause.svg?");
 
 /***/ },
-/* 141 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"-16 -15.8 80 80\\\" id=\\\"ui_play\\\"> <path fill=\\\"#707070\\\" d=\\\"M16,10v28l22-14L16,10z\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_play\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_play.svg\n ** module id = 141\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_play.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"-16 -15.8 80 80\\\" id=\\\"ui_play\\\"> <path fill=\\\"#707070\\\" d=\\\"M16,10v28l22-14L16,10z\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_play\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_play.svg\n ** module id = 88\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_play.svg?");
 
 /***/ },
-/* 142 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"654.4 -357.4 80 80\\\" id=\\\"ui_timpani1\\\"> <g> <path fill=\\\"#B1B1B2\\\" d=\\\"M673.4-299.6c-3.2,0-4.5-2.2-2.8-5l20.7-33.6c1.7-2.7,4.5-2.7,6.1,0l20.7,33.6c1.7,2.7,0.4,5-2.8,5H673.4z\\\"/> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_timpani1\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_timpani1.svg\n ** module id = 142\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_timpani1.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"654.4 -357.4 80 80\\\" id=\\\"ui_timpani1\\\"> <g> <path fill=\\\"#B1B1B2\\\" d=\\\"M673.4-299.6c-3.2,0-4.5-2.2-2.8-5l20.7-33.6c1.7-2.7,4.5-2.7,6.1,0l20.7,33.6c1.7,2.7,0.4,5-2.8,5H673.4z\\\"/> </g> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_timpani1\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_timpani1.svg\n ** module id = 89\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_timpani1.svg?");
 
 /***/ },
-/* 143 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"656.2 -236.6 80 80\\\" id=\\\"ui_timpani2\\\"> <circle fill=\\\"#FFBC00\\\" cx=\\\"696.2\\\" cy=\\\"-196.6\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_timpani2\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_timpani2.svg\n ** module id = 143\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_timpani2.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"656.2 -236.6 80 80\\\" id=\\\"ui_timpani2\\\"> <circle fill=\\\"#FFBC00\\\" cx=\\\"696.2\\\" cy=\\\"-196.6\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_timpani2\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_timpani2.svg\n ** module id = 90\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_timpani2.svg?");
 
 /***/ },
-/* 144 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"656.2 -141.6 80 80\\\" id=\\\"ui_timpani3\\\"> <circle fill=\\\"#F47400\\\" cx=\\\"696.2\\\" cy=\\\"-101.6\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_timpani3\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_timpani3.svg\n ** module id = 144\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_timpani3.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"656.2 -141.6 80 80\\\" id=\\\"ui_timpani3\\\"> <circle fill=\\\"#F47400\\\" cx=\\\"696.2\\\" cy=\\\"-101.6\\\" r=\\\"23.1\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_timpani3\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_timpani3.svg\n ** module id = 91\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_timpani3.svg?");
 
 /***/ },
-/* 145 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"1095.2 -341.7 80 80\\\" id=\\\"ui_woodblocks1\\\"> <path fill=\\\"#8F2909\\\" d=\\\"M1145-301.7l12.1-12.1c1.9-1.9,1.9-5.1,0-7l-2.7-2.7c-1.9-1.9-5.1-1.9-7,0l-12.1,12.1l-12.1-12.1\\r\\n\\tc-1.9-1.9-5.1-1.9-7,0l-2.7,2.7c-1.9,1.9-1.9,5.1,0,7l12.1,12.1l-12.1,12.1c-1.9,1.9-1.9,5.1,0,7l2.7,2.7c1.9,1.9,5.1,1.9,7,0\\r\\n\\tl12.1-12.1l12.1,12.1c1.9,1.9,5.1,1.9,7,0l2.7-2.7c1.9-1.9,1.9-5.1,0-7L1145-301.7z\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_woodblocks1\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_woodblocks1.svg\n ** module id = 145\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_woodblocks1.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"1095.2 -341.7 80 80\\\" id=\\\"ui_woodblocks1\\\"> <path fill=\\\"#8F2909\\\" d=\\\"M1145-301.7l12.1-12.1c1.9-1.9,1.9-5.1,0-7l-2.7-2.7c-1.9-1.9-5.1-1.9-7,0l-12.1,12.1l-12.1-12.1\\r\\n\\tc-1.9-1.9-5.1-1.9-7,0l-2.7,2.7c-1.9,1.9-1.9,5.1,0,7l12.1,12.1l-12.1,12.1c-1.9,1.9-1.9,5.1,0,7l2.7,2.7c1.9,1.9,5.1,1.9,7,0\\r\\n\\tl12.1-12.1l12.1,12.1c1.9,1.9,5.1,1.9,7,0l2.7-2.7c1.9-1.9,1.9-5.1,0-7L1145-301.7z\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_woodblocks1\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_woodblocks1.svg\n ** module id = 92\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_woodblocks1.svg?");
 
 /***/ },
-/* 146 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"1146.9 -249.4 80 80\\\" id=\\\"ui_woodblocks2\\\"> <rect x=\\\"1167.3\\\" y=\\\"-229\\\" fill=\\\"#FFBC00\\\" width=\\\"39.3\\\" height=\\\"39.3\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_woodblocks2\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_woodblocks2.svg\n ** module id = 146\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_woodblocks2.svg?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"1146.9 -249.4 80 80\\\" id=\\\"ui_woodblocks2\\\"> <rect x=\\\"1167.3\\\" y=\\\"-229\\\" fill=\\\"#FFBC00\\\" width=\\\"39.3\\\" height=\\\"39.3\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_woodblocks2\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_woodblocks2.svg\n ** module id = 93\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_woodblocks2.svg?");
 
 /***/ },
-/* 147 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
-	eval(";\nvar sprite = __webpack_require__(130);;\nvar image = \"<symbol viewBox=\\\"1152.4 -154.7 80 80\\\" id=\\\"ui_woodblocks3\\\"> <rect x=\\\"1172.8\\\" y=\\\"-134.4\\\" fill=\\\"#8F2909\\\" width=\\\"39.3\\\" height=\\\"39.3\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_woodblocks3\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_woodblocks3.svg\n ** module id = 147\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_woodblocks3.svg?");
-
-/***/ },
-/* 148 */
-/***/ function(module, exports, __webpack_require__) {
-
-	eval("module.exports = __webpack_require__.p + \"img/bass.png\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/img/bass.png\n ** module id = 148\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/img/bass.png?");
-
-/***/ },
-/* 149 */
-/***/ function(module, exports, __webpack_require__) {
-
-	eval("module.exports = __webpack_require__.p + \"img/drums.png\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/img/drums.png\n ** module id = 149\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/img/drums.png?");
-
-/***/ },
-/* 150 */
-/***/ function(module, exports, __webpack_require__) {
-
-	eval("module.exports = __webpack_require__.p + \"img/guitar.png\";\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/img/guitar.png\n ** module id = 150\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/img/guitar.png?");
+	eval(";\nvar sprite = __webpack_require__(77);;\nvar image = \"<symbol viewBox=\\\"1152.4 -154.7 80 80\\\" id=\\\"ui_woodblocks3\\\"> <rect x=\\\"1172.8\\\" y=\\\"-134.4\\\" fill=\\\"#8F2909\\\" width=\\\"39.3\\\" height=\\\"39.3\\\"/> </symbol>\";\nmodule.exports = sprite.add(image, \"ui_woodblocks3\");\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/svg/ui_woodblocks3.svg\n ** module id = 94\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/svg/ui_woodblocks3.svg?");
 
 /***/ }
 /******/ ]);
