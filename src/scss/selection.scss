@@ -1,0 +1,40 @@
+#selectionContainer {
+  height: 100%;
+}
+
+.row {
+  width: 100%;
+  height: calc(100% / 3);
+}
+
+.row.choose {
+  padding-top: 40px;
+
+  h2 {
+    font-size: 6em;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.row.choose.guitar {
+  background-color: $main-green;
+  background-image: url('/img/guitar.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+.row.choose.bass {
+  background-color: $main-sand;
+  background-image: url('/img/bass.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
+.row.choose.drums {
+  background-color: $main-red;
+  background-image: url('/img/drums.png');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+

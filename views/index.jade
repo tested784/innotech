@@ -5,11 +5,15 @@ html
     body
         div#selectionPage
             div#selectionContainer
-                button(class="choose", data-type="guitar") Guitar
-                button(class="choose", data-type="drums") Drums
-                button(class="choose", data-type="bass") Bass
+                div(class="row choose guitar", data-type="guitar")
+                    h2 Guitar
+                div(class="row choose drums", data-type="drums")
+                    h2 Drums
+                div(class="row choose bass", data-type="bass")
+                    h2 Bass
         div#sequencePage.hide
             div#container
+                div.header
 
         script(src='/js/app.js')
 

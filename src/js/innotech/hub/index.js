@@ -76,7 +76,6 @@ if (page.indexOf('/room') > -1) {
 
         socket.on('incomingSequence', function (data) {
             var user = _.findWhere(participants, {id: data.user});
-            console.log(participants);
             if (user) {
                 var sequence = data.sequence;
                 var opts = window.musicbox.config[user.instrument].sequencer;
