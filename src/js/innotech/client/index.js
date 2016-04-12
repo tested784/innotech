@@ -60,7 +60,7 @@ if (page === "/") {
             window.sessionId = sessionId;
             socket.emit('newUser', {
                 id: sessionId,
-                instrument: 'conga'
+                instrument: instrument
             });
         });
 
