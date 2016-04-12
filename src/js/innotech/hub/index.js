@@ -78,6 +78,13 @@ if (page.indexOf('/room') > -1) {
          remove the span element from the participants element
          */
         socket.on('userDisconnected', function (data) {
+            var user = _.findWhere(participants, {id: data.id});
+            if (user) {
+                if (user.hasOwnProperty('sequencer')) {
+                    user.sequencer.stop();
+                }
+            }
+
             participants = _.without(participants, _.findWhere(participants, {id: data.id}));
         });
 
@@ -87,13 +94,18 @@ if (page.indexOf('/room') > -1) {
          we'll prepend it to the messages section
          */
         socket.on('incomingSequence', function (data) {
-            var sequence = data.sequence;
             var user = _.findWhere(participants, {id: data.user});
-            var opts = window.musicbox.config[user.instrument].sequencer;
-            opts.tracks = sequence;
-            user.sequencer = new window.musicbox.Sequencer(opts);
-            user.sequencer.stop();
-            user.sequencer.start();
+            if (user) {
+                var sequence = data.sequence;
+                var opts = window.musicbox.config[user.instrument].sequencer;
+                opts.tracks = sequence;
+                if (user.hasOwnProperty('sequencer')) {
+                    user.sequencer.stop();
+                }
+                user.sequencer = new window.musicbox.Sequencer(opts);
+                user.sequencer.stop();
+                user.sequencer.start();
+            }
         });
 
         /*
