@@ -40,19 +40,8 @@ window.musicbox.MultiSequencer = function (sequencers) {
 
     }.bind(this));
 
-    this.saveSequence = document.createElement('div');
-    this.saveSequence.className = 'puck-button save';
-
-
-    this.saveSequenceListener = new window.musicbox.PressListener(this.saveSequence, function () {
-
-        
-
-
-    }.bind(this));
 
     this.domElement.appendChild(this.playPause);
-    this.domElement.appendChild(this.saveSequence);
 
     this.playing = false;
 

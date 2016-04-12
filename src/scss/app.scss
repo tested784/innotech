@@ -64,12 +64,12 @@ input {
 
 #about {
   right: 0;
-  background: url("assets/image/ui_about.svg") center center no-repeat;
+  background: url("/assets/image/ui_about.svg") center center no-repeat;
 }
 
 #menu {
   left: 0;
-  background: url("assets/image/ui_menu.svg") center center no-repeat;
+  background: url("/assets/image/ui_menu.svg") center center no-repeat;
 }
 
 .puck-button {
@@ -81,7 +81,7 @@ input {
   -webkit-background-size: 90%;
   -moz-background-size: 90%;
   background-size: 90%;
-  background: #fff url("assets/image/ui_play.svg") center center no-repeat;
+  background: #fff url("/assets/image/ui_play.svg") center center no-repeat;
   -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.38, 1.8, 0.32, 1);
   -moz-transition: -moz-transform 0.1s cubic-bezier(0.38, 1.8, 0.32, 1);
   -o-transition: -o-transform 0.1s cubic-bezier(0.38, 1.8, 0.32, 1);
@@ -102,22 +102,15 @@ input {
 }
 
 .puck-button.play-pause {
-  margin-left: -100px;
+  margin-left: -30px;
   bottom: 213px;
   left: 50%;
-  background-image: url("assets/image/ui_play.svg");
-}
-
-.puck-button.save {
-  margin-left: 0;
-  bottom: 213px;
-  left: 50%;
-  background-image: url("assets/image/ui_arrow.svg");
+  background-image: url("/assets/image/ui_play.svg");
 }
 
 .playing .puck-button.play-pause,
 .suspended .puck-button.play-pause {
-  background-image: url("assets/image/ui_pause.svg");
+  background-image: url("/assets/image/ui_pause.svg");
 }
 
 .puck-button.next,
@@ -125,7 +118,7 @@ input {
   -webkit-background-size: 120%;
   -moz-background-size: 120%;
   background-size: 120%;
-  background-image: url("assets/image/ui_arrow.svg");
+  background-image: url("/assets/image/ui_arrow.svg");
   top: 50%;
   background-position: center 45%;
   margin-top: -150px;

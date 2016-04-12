@@ -4,16 +4,10 @@ window.musicbox.Sequencer = function (opts) {
 
     opts = aaf.utils.defaults(opts, {
 
-        listeners: [
-            aaf.common.noop,
-            aaf.common.noop,
-            aaf.common.noop
-        ],
-
         symbols: [
-            'assets/image/ui_timpani1.svg',
-            'assets/image/ui_timpani2.svg',
-            'assets/image/ui_timpani3.svg'
+            '/assets/image/ui_timpani1.svg',
+            '/assets/image/ui_timpani2.svg',
+            '/assets/image/ui_timpani3.svg'
         ],
 
         tracks: [],
@@ -197,7 +191,6 @@ window.musicbox.Sequencer.prototype.onInterval = function (time) {
     for (var i = 0, l = this.tracks.length; i < l; i++) {
 
         var track = this.tracks[i];
-        var listener = this.listeners[i];
 
         if (track[this.stepNumber]) {
 
@@ -208,7 +201,7 @@ window.musicbox.Sequencer.prototype.onInterval = function (time) {
 
             // schedule beat animation
             setTimeout(this.animateNoteListeners[i][this.stepNumber], millis);
-            listener(0.1);
+            // listener(0.1);
 
         }
 
@@ -244,7 +237,7 @@ window.musicbox.Sequencer.prototype.update = function () {
 
     this.prevTime = t;
 
-    // update sequencer "position" ( 0-1 progress through the measure )
+    // update sequencer "position" ( 0-1 progreFs through the measure )
 
     this.position = Tone.Transport.progress; //( this.time - this.startTime ) / this.measureLength % 1;
 
@@ -382,7 +375,7 @@ window.musicbox.Sequencer.prototype.buildDom = function (opts) {
 window.musicbox.Sequencer.prototype.touchSlot = function (track, beat, el, val) {
     var sequence = this.tracks;
     $.ajax({
-        url: '/band',
+        url: '/sequence',
         type: 'POST',
         contentType: 'application/json',
         dataType: 'json',
@@ -404,7 +397,6 @@ window.musicbox.Sequencer.prototype.setBeat = function (track, beat, el, val, su
     if (val && !same && !this.playing && suppressSample !== true) {
 
         this.triggerSample(track);
-        this.listeners[track](0.15);
 
     }
 

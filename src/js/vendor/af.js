@@ -10,22 +10,22 @@ var defaults = require( 'utils/defaults' );
 
 // kinda messy: define basePath up before export & type requires
 // as some types might need to know its value.
-assets.basePath = 'assets/'
+assets.basePath = '/assets/'
 
 module.exports = assets;
 
 var types = {
-    atlas:   require( 'assets/atlas' ),
-    buffer:  require( 'assets/buffer' ),
-    cube:    require( 'assets/cube' ),
-    dom:     require( 'assets/dom' ),
-    image:   require( 'assets/image' ),
-    json:    require( 'assets/json' ),
-    obj:     require( 'assets/obj' ),
-    sample:  require( 'assets/sample' ),
-    text:    require( 'assets/text' ),
-    texture: require( 'assets/texture' ),
-    spritesheet: require( 'assets/spritesheet' ),
+    atlas:   require( '/assets/atlas' ),
+    buffer:  require( '/assets/buffer' ),
+    cube:    require( '/assets/cube' ),
+    dom:     require( '/assets/dom' ),
+    image:   require( '/assets/image' ),
+    json:    require( '/assets/json' ),
+    obj:     require( '/assets/obj' ),
+    sample:  require( '/assets/sample' ),
+    text:    require( '/assets/text' ),
+    texture: require( '/assets/texture' ),
+    spritesheet: require( '/assets/spritesheet' ),
 
 };
 
@@ -113,13 +113,13 @@ extend( assets, {
     }
 
 } );
-},{"assets/atlas":2,"assets/buffer":3,"assets/cube":4,"assets/dom":5,"assets/image":6,"assets/json":7,"assets/obj":8,"assets/sample":9,"assets/spritesheet":10,"assets/text":11,"assets/texture":12,"utils/Promise":50,"utils/defaults":54,"utils/extend":55}],2:[function(require,module,exports){
+},{"/assets/atlas":2,"/assets/buffer":3,"/assets/cube":4,"/assets/dom":5,"/assets/image":6,"/assets/json":7,"/assets/obj":8,"/assets/sample":9,"/assets/spritesheet":10,"/assets/text":11,"/assets/texture":12,"utils/Promise":50,"utils/defaults":54,"utils/extend":55}],2:[function(require,module,exports){
 var xhr     = require( 'utils/xhr' );
 var Promise = require( 'utils/Promise' );
 
 var assets  = require( 'assets' );
-var image   = require( 'assets/image' );
-var texture = require( 'assets/texture' );
+var image   = require( '/assets/image' );
+var texture = require( '/assets/texture' );
 
 var TextureAtlas = require( 'three/TextureAtlas' );
 
@@ -214,7 +214,7 @@ module.exports = {
 }
 
 
-},{"assets":1,"assets/image":6,"assets/texture":12,"three/TextureAtlas":47,"utils/Promise":50,"utils/xhr":62}],3:[function(require,module,exports){
+},{"assets":1,"/assets/image":6,"/assets/texture":12,"three/TextureAtlas":47,"utils/Promise":50,"utils/xhr":62}],3:[function(require,module,exports){
 var xhr = require( 'utils/xhr' );
 module.exports = { load: xhr.getBuffer };
 },{"utils/xhr":62}],4:[function(require,module,exports){
@@ -297,7 +297,7 @@ module.exports = {
     }
 };
 },{"utils/xhr":62}],8:[function(require,module,exports){
-var text = require( 'assets/text' );
+var text = require( '/assets/text' );
 var ready = require( 'common/ready' );
 
 var loader;
@@ -315,7 +315,7 @@ module.exports = {
         return obj;
     }
 }
-},{"assets/text":11,"common/ready":21}],9:[function(require,module,exports){
+},{"/assets/text":11,"common/ready":21}],9:[function(require,module,exports){
 var Sample = require( 'audio/Sample' );
 var audio = require( 'common/audio' );
 var xhr = require( 'utils/xhr' );
@@ -394,7 +394,7 @@ function zeroPad( val, zeros ) {
 var xhr = require( 'utils/xhr' );
 module.exports = { load: xhr.get };
 },{"utils/xhr":62}],12:[function(require,module,exports){
-var image = require( 'assets/image' );
+var image = require( '/assets/image' );
 
 
 module.exports = {
@@ -433,7 +433,7 @@ module.exports = {
     }
 
 }
-},{"assets/image":6}],13:[function(require,module,exports){
+},{"/assets/image":6}],13:[function(require,module,exports){
 var audio = require( 'common/audio' );
 
 module.exports = Sample;
