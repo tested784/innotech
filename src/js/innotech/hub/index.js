@@ -49,13 +49,6 @@ if (page.indexOf('/room') > -1) {
             }
         }
 
-        /*
-         When the client successfully connects to the server, an
-         event "connect" is emitted. Let's get the session ID and
-         log it. Also, let the socket.IO server there's a new user
-         with a session ID and a name. We'll emit the "newUser" event
-         for that.
-         */
         socket.on('connection', function () {
             participants = [];
             var sessionId = socket.io.engine.id;
@@ -65,20 +58,11 @@ if (page.indexOf('/room') > -1) {
             });
         });
 
-        /*
-         When the server emits the "newConnection" event, we'll reset
-         the participants section and display the connected clients.
-         Note we are assigning the sessionId as the span ID.
-         */
         socket.on('newConnection', function (user) {
             participants.push(user);
             updateParticipants(participants);
         });
 
-        /*
-         When the server emits the "userDisconnected" event, we'll
-         remove the span element from the participants element
-         */
         socket.on('userDisconnected', function (data) {
             var user = _.findWhere(participants, {id: data.id});
             if (user) {
@@ -90,22 +74,22 @@ if (page.indexOf('/room') > -1) {
             participants = _.without(participants, _.findWhere(participants, {id: data.id}));
         });
 
-
-        /*
-         When receiving a new chat message with the "incomingMessage" event,
-         we'll prepend it to the messages section
-         */
         socket.on('incomingSequence', function (data) {
             var user = _.findWhere(participants, {id: data.user});
+            console.log(participants);
             if (user) {
                 var sequence = data.sequence;
                 var opts = window.musicbox.config[user.instrument].sequencer;
                 opts.tracks = sequence;
                 if (user.hasOwnProperty('sequencer')) {
-                    // user.sequencer.stop();
+                    user.sequencer.stop();
+                    user.sequencer.setTracks(sequence);
+                    user.sequencer.start();
                 }
-                user.sequencer = new window.musicbox.Sequencer(opts);
-                user.sequencer.start();
+                else {
+                    user.sequencer = new window.musicbox.Sequencer(opts);
+                    user.sequencer.start();
+                }
             }
         });
 
@@ -115,49 +99,5 @@ if (page.indexOf('/room') > -1) {
         socket.on('error', function (reason) {
             console.log('Unable to connect to server', reason);
         });
-    })();
-
-
-    (function () {
-
-
-        // Main
-        // -------------------------------
-
-        function init() {
-
-            var sequencers = [];
-
-            // Collect character pairs and sequencers
-            // -------------------------------
-
-            for (var key in window.musicbox.config) {
-
-                var config = window.musicbox.config[key];
-
-                // Make sequencers
-                // -------------------------------
-
-                var sequencerConfig = config.sequencer;
-
-
-                var sequencer = new window.musicbox.Sequencer(sequencerConfig);
-
-                sequencers.push(sequencer);
-
-            }
-
-        };
-
-
-        function update() {
-
-            for (var i = 0; i < participants; i++) {
-                participants[i].sequencer.update();
-            }
-
-        }
-
-
     })();
 }

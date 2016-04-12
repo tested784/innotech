@@ -421,6 +421,18 @@ window.musicbox.Sequencer.prototype.getBeat = function (track, beat) {
 
 };
 
+window.musicbox.Sequencer.prototype.getTracks = function () {
+
+    return this.tracks;
+
+};
+
+window.musicbox.Sequencer.prototype.setTracks = function (tracks) {
+
+    this.tracks = tracks;
+
+};
+
 window.musicbox.Sequencer.prototype.toggleBeat = function (track, beat, el) {
     return this.setBeat(track, beat, el, !this.getBeat(track, beat));
 };
