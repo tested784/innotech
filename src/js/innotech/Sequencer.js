@@ -195,7 +195,7 @@ window.musicbox.Sequencer.prototype.onInterval = function (time) {
 
         if (track[this.stepNumber]) {
 
-            // this.sampler.triggerAttackRelease(this.trackNames[i], '1n', time);
+            this.sampler.triggerAttackRelease(this.trackNames[i], '1n', time);
 
             // TODO: create these listeners up front.
             // var listener = this.animateNote.bind( this, i, this.stepNumber );
