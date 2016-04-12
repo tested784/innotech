@@ -1,3 +1,4 @@
+var Tone = require('tone');
 
 window.musicbox.MultiSequencer = function (sequencers) {
 

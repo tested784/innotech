@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var Tone = require('tone');
 
 window.musicbox.Sequencer = function (opts) {
 

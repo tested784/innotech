@@ -1,6 +1,8 @@
 var $ = require('jquery');
 var io = require('socket.io-client');
 var _ = require("underscore");
+var Tone = require('tone');
+
 require('../../vendor/pixi');
 require('gsap');
 require('hammerjs');
@@ -144,6 +146,16 @@ if (page.indexOf('/room') > -1) {
                 sequencers.push(sequencer);
 
             }
+
+            Tone.Buffer.on('load', function () {
+
+                aaf.common.loop.add(update);
+                aaf.common.loop.start();
+
+                window.parent.postMessage('loaded', '*');
+                window.parent.postMessage('ready', '*');
+
+            });
 
         };
 

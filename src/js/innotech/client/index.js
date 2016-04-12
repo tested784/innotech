@@ -1,6 +1,8 @@
 var $ = require('jquery');
 var io = require('socket.io-client');
 var _ = require("underscore");
+var Tone = require('tone');
+
 require('../../vendor/pixi');
 require('gsap');
 require('hammerjs');

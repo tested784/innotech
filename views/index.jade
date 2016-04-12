@@ -1,9 +1,6 @@
 doctype html
 html
     head
-        script(type="text/javascript" src="http://cdn.tonejs.org/latest/Tone.min.js")
-
-        script(src='/js/app.js')
         title Innovative Technology - Client
     body
         div#selectionPage
@@ -11,5 +8,9 @@ html
                 button(class="choose", data-type="guitar") Guitar
                 button(class="choose", data-type="drums") Drums
                 button(class="choose", data-type="bass") Bass
-    div#sequencePage.hide
+        div#sequencePage.hide
             div#container
+
+        script(src='/js/app.js')
+
+
