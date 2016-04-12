@@ -147,16 +147,6 @@ if (page.indexOf('/room') > -1) {
 
             }
 
-            Tone.Buffer.on('load', function () {
-
-                aaf.common.loop.add(update);
-                aaf.common.loop.start();
-
-                window.parent.postMessage('loaded', '*');
-                window.parent.postMessage('ready', '*');
-
-            });
-
         };
 
 
