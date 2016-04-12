@@ -937,7 +937,7 @@
 /* 163 */
 /***/ function(module, exports) {
 
-	eval("window.musicbox.config.guitar.sequencer = {\n\n    beats: 6,\n    timeSignature: 6,\n    bpm: 100,\n\n    samples: [\n        '/assets/sample/guitar/G_bass.mp3',\n        '/assets/sample/guitar/F_bass.mp3',\n        '/assets/sample/guitar/C_bass.mp3'\n    ],\n\n    symbols: [\n        '/assets/image/ui_congas1.svg',\n        '/assets/image/ui_congas2.svg',\n        '/assets/image/ui_congas3.svg'\n    ],\n\n    order: [\n        'small',\n        'left',\n        'right'\n    ],\n\n    tracks: [\n        [0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0]\n    ]\n\n};\n    \n\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/js/innotech/config/guitar.sequencer.js\n ** module id = 163\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/js/innotech/config/guitar.sequencer.js?");
+	eval("window.musicbox.config.guitar.sequencer = {\n\n    beats: 6,\n    timeSignature: 6,\n    bpm: 100,\n\n    samples: [\n        '/assets/sample/guitar/G_guitar.mp3',\n        '/assets/sample/guitar/F_guitar.mp3',\n        '/assets/sample/guitar/C_guitar.mp3'\n    ],\n\n    symbols: [\n        '/assets/image/ui_congas1.svg',\n        '/assets/image/ui_congas2.svg',\n        '/assets/image/ui_congas3.svg'\n    ],\n\n    order: [\n        'small',\n        'left',\n        'right'\n    ],\n\n    tracks: [\n        [0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0]\n    ]\n\n};\n    \n\n\n/*****************\n ** WEBPACK FOOTER\n ** ../src/js/innotech/config/guitar.sequencer.js\n ** module id = 163\n ** module chunks = 0\n **/\n//# sourceURL=webpack:///../src/js/innotech/config/guitar.sequencer.js?");
 
 /***/ },
 /* 164 */,
