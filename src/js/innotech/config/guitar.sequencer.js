@@ -5,9 +5,9 @@ window.musicbox.config.guitar.sequencer = {
     bpm: 100,
 
     samples: [
-        '/assets/sample/guitar/G.mp3',
-        '/assets/sample/guitar/F.mp3',
-        '/assets/sample/guitar/C.mp3'
+        '/assets/sample/guitar/G_bass.mp3',
+        '/assets/sample/guitar/F_bass.mp3',
+        '/assets/sample/guitar/C_bass.mp3'
     ],
 
     symbols: [
