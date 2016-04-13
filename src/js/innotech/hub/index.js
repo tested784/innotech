@@ -30,28 +30,10 @@ if (page.indexOf('/room') > -1) {
             serverBaseUrl += ":8080";
         }
 
-        /*
-         On client init, try to connect to the socket.IO server.
-         Note we don't specify a port since we set up our server
-         to run on port 8080
-         */
         var socket = io.connect(serverBaseUrl);
-
-        //We'll save our session ID in a variable for later
-        var sessionId = '';
-
-        //Helper function to update the participants' list
-        function updateParticipants(participants) {
-            $('#participants').html('');
-            $('#participants').append('<ul id="participants-list">');
-            for (var i = 0; i < participants.length; i++) {
-                $('#participants-list').append('<li>' + participants[i].id + '</li>');
-            }
-        }
 
         socket.on('newConnection', function (user) {
             participants.push(user);
-            updateParticipants(participants);
         });
 
         socket.on('userDisconnected', function (data) {
@@ -83,9 +65,11 @@ if (page.indexOf('/room') > -1) {
             }
         });
 
-        /*
-         Log an error if unable to connect to server
-         */
+        socket.on('instrumentSelected', function (user) {
+            _.findWhere(participants, {user: user.id}).instrument = user.instrument;
+            $('.'+user.instrument).toggleClass('unavailable');
+        });
+
         socket.on('error', function (reason) {
             console.log('Unable to connect to server', reason);
         });

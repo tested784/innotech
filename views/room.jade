@@ -4,8 +4,24 @@ html
         title Innovative Technology - Room
     body
         div#container
-        div#meta
-            div#participants
-
-        script(src='/js/app.js')
+            div(class="column guitar", data-type="guitar")
+                div.svg-container.instrument-guitar
+                    svg
+                        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#guitar")
+            div(class="column drums", data-type="drums")
+                div.svg-container.instrument-guitar
+                    svg
+                        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#drums")
+            div(class="column bass", data-type="bass")
+                div.svg-container.instrument-bass
+                    svg
+                        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#bass")
+        div#textContainer
+            div.guitarText
+                h2 Guitar
+            div.drumsText
+                h2 Drums
+            div.bassText
+                h2 Bass
+    script(src='/js/app.js')
 

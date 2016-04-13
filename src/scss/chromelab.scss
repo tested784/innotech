@@ -333,3 +333,84 @@ input {
 #participants {
   position: relative;
 }
+
+.column {
+  display: inline-block;
+  height: 100%;
+  width: calc(100% / 3);
+}
+
+.column {
+
+  background-color: #fff;
+  opacity: 0.3;
+
+  h2 {
+    position: absolute;
+    font-size: 6em;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.column.unavailable {
+  opacity: 1;
+}
+
+.column.guitar.unavailable {
+  background-color: $main-green;
+}
+
+.column.bass.unavailable {
+  background-color: $main-red;
+}
+
+.column.drums.unavailable {
+  background-color: $main-sand;
+}
+
+.svg-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 80%;
+  }
+}
+
+#textContainer div {
+  width: calc(100% /3);
+  display: inline-block;
+  text-align: center;
+  h2 {
+    font-size: 6em;
+    color: #fff;
+    text-align: center;
+  }
+}
+
+#textContainer {
+  position: fixed;
+  bottom: 10%;
+  width: 100%;
+
+  .guitarText{
+    h2 {
+      color: $main-green;
+    }
+  }
+  .drumsText{
+    h2 {
+      color: $main-sand;
+    }
+  }
+  .bassText{
+    h2 {
+      color: $main-red;
+    }
+  }
+}
+
+

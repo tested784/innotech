@@ -26,7 +26,7 @@
 }
 
 .row.choose.bass, .header.bass {
-  background-color: $main-sand;
+  background-color: $main-red;
   background-image: url('/img/bass.svg');
   background-size: contain;
   background-position: bottom center;
@@ -34,7 +34,7 @@
 }
 
 .row.choose.drums, .header.drums {
-  background-color: $main-red;
+  background-color: $main-sand;
   background-image: url('/img/drums.svg');
   background-size: 100%;
   background-position: bottom center;
@@ -44,4 +44,3 @@
 .row.choose.unavailable {
   opacity: 0.5;
 }
-
