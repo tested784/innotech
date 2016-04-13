@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var Tone = require('tone');
 
-window.musicbox.Sequencer = function (opts) {
+window.musicbox.FakeSequencer = function (opts) {
 
     opts = aaf.utils.defaults(opts, {
 
@@ -102,14 +102,14 @@ window.musicbox.Sequencer = function (opts) {
 
 };
 
-window.musicbox.Sequencer.UI_MODE = aaf.common.url.ui || 'css';
-window.musicbox.Sequencer.USE_CSS_TRANSITIONS = aaf.common.url.boolean('transition', true);
+window.musicbox.FakeSequencer.UI_MODE = aaf.common.url.ui || 'css';
+window.musicbox.FakeSequencer.USE_CSS_TRANSITIONS = aaf.common.url.boolean('transition', true);
 
 
 // Audio
 // -------------------------------
 
-window.musicbox.Sequencer.prototype.start = function () {
+window.musicbox.FakeSequencer.prototype.start = function () {
 
 
     // hack: belongs in resize. sequencer-padding-horizontal * 2 = 40
@@ -147,7 +147,7 @@ window.musicbox.Sequencer.prototype.start = function () {
 
 };
 
-window.musicbox.Sequencer.prototype.stop = function () {
+window.musicbox.FakeSequencer.prototype.stop = function () {
 
     this.playing = false;
 
@@ -167,7 +167,7 @@ window.musicbox.Sequencer.prototype.stop = function () {
 
 };
 
-window.musicbox.Sequencer.prototype.animateNote = function (track, beat) {
+window.musicbox.FakeSequencer.prototype.animateNote = function (track, beat) {
 
 
     this.needsAnimate[track][beat] = true;
@@ -181,7 +181,7 @@ window.musicbox.Sequencer.prototype.animateNote = function (track, beat) {
 };
 
 
-window.musicbox.Sequencer.prototype.onInterval = function (time) {
+window.musicbox.FakeSequencer.prototype.onInterval = function (time) {
 
     if (!this.playing) return;
 
@@ -194,7 +194,7 @@ window.musicbox.Sequencer.prototype.onInterval = function (time) {
 
         if (track[this.stepNumber]) {
 
-            this.sampler.triggerAttackRelease(this.trackNames[i], '1n', time);
+            // this.sampler.triggerAttackRelease(this.trackNames[i], '1n', time);
 
             // TODO: create these listeners up front.
             // var listener = this.animateNote.bind( this, i, this.stepNumber );
@@ -217,7 +217,7 @@ window.musicbox.Sequencer.prototype.onInterval = function (time) {
 // UI
 // -------------------------------
 
-window.musicbox.Sequencer.prototype.update = function () {
+window.musicbox.FakeSequencer.prototype.update = function () {
 
     if (!this.playing) return;
 
@@ -247,7 +247,7 @@ window.musicbox.Sequencer.prototype.update = function () {
 
 };
 
-window.musicbox.Sequencer.prototype.updateStyles = function () {
+window.musicbox.FakeSequencer.prototype.updateStyles = function () {
 
     var str = 'translate3d(';
     str += this.position * this.sequencerInnerWidth;
@@ -273,17 +273,17 @@ window.musicbox.Sequencer.prototype.updateStyles = function () {
 
 };
 
-window.musicbox.Sequencer.prototype.triggerAnimation = function (i, j, val) {
+window.musicbox.FakeSequencer.prototype.triggerAnimation = function (i, j, val) {
     var symbol = this.slotElements[i][j];
 
     symbol.style.webkitTransform =
         symbol.style.transform = val ? 'scale( 1.5 )' : '';
 
     symbol.style.webkitTransitionDuration =
-        symbol.style.transitionDuration = val || !window.musicbox.Sequencer.USE_CSS_TRANSITIONS ? '0s' : '';
+        symbol.style.transitionDuration = val || !window.musicbox.FakeSequencer.USE_CSS_TRANSITIONS ? '0s' : '';
 }
 
-window.musicbox.Sequencer.prototype.buildDom = function (opts) {
+window.musicbox.FakeSequencer.prototype.buildDom = function (opts) {
 
     this.domElement = document.createElement('div');
     this.domElement.className = 'sequencer';
@@ -365,7 +365,7 @@ window.musicbox.Sequencer.prototype.buildDom = function (opts) {
 
 };
 
-window.musicbox.Sequencer.prototype.touchSlot = function (track, beat, el, val) {
+window.musicbox.FakeSequencer.prototype.touchSlot = function (track, beat, el, val) {
     var sequence = this.tracks;
     this.dragOperation = this.toggleBeat(track, beat, el, val);
     $.ajax({
@@ -380,7 +380,7 @@ window.musicbox.Sequencer.prototype.touchSlot = function (track, beat, el, val) 
     });
 };
 
-window.musicbox.Sequencer.prototype.setBeat = function (track, beat, el, val, suppressSample) {
+window.musicbox.FakeSequencer.prototype.setBeat = function (track, beat, el, val, suppressSample) {
 
     var same = this.tracks[track][beat] === val;
 
@@ -389,7 +389,7 @@ window.musicbox.Sequencer.prototype.setBeat = function (track, beat, el, val, su
 
     if (val && !same && !this.playing && suppressSample !== true) {
 
-        this.triggerSample(track);
+        // this.triggerSample(track);
 
     }
 
@@ -397,34 +397,34 @@ window.musicbox.Sequencer.prototype.setBeat = function (track, beat, el, val, su
 
 };
 
-window.musicbox.Sequencer.prototype.triggerSample = function (track, vel) {
+window.musicbox.FakeSequencer.prototype.triggerSample = function (track, vel) {
 
     if (vel === undefined) {
         vel = 1;
     }
     Tone.Transport.clear(this.intervalID);
     this.sampler.volume.value = 0; // volume is in dB so this actually unmutes
-    this.sampler.triggerAttackRelease(this.trackNames[track], '1n', Tone.context.currentTime, vel);
+    // this.sampler.triggerAttackRelease(this.trackNames[track], '1n', Tone.context.currentTime, vel);
 };
 
-window.musicbox.Sequencer.prototype.getBeat = function (track, beat) {
+window.musicbox.FakeSequencer.prototype.getBeat = function (track, beat) {
 
     return this.tracks[track][beat];
 
 };
 
-window.musicbox.Sequencer.prototype.getTracks = function () {
+window.musicbox.FakeSequencer.prototype.getTracks = function () {
 
     return this.tracks;
 
 };
 
-window.musicbox.Sequencer.prototype.setTracks = function (tracks) {
+window.musicbox.FakeSequencer.prototype.setTracks = function (tracks) {
 
     this.tracks = tracks;
 
 };
 
-window.musicbox.Sequencer.prototype.toggleBeat = function (track, beat, el) {
+window.musicbox.FakeSequencer.prototype.toggleBeat = function (track, beat, el) {
     return this.setBeat(track, beat, el, !this.getBeat(track, beat));
 };

@@ -13,7 +13,7 @@ require('../Animation');
 require('../EasyPIXI');
 require('../MultiSequencer');
 require('../PressListener');
-require('../Sequencer');
+require('../FakeSequencer');
 require('../config/config');
 
 var page = $(location).attr('pathname');
@@ -74,7 +74,7 @@ function initJamSession() {
 
             var sequencerConfig = config.sequencer;
 
-            var sequencer = new window.musicbox.Sequencer(sequencerConfig);
+            var sequencer = new window.musicbox.FakeSequencer(sequencerConfig);
 
             sequencers.push(sequencer);
         }
@@ -84,12 +84,8 @@ function initJamSession() {
             multiSequencer.setActiveSequencer(sequencers[configKeys.indexOf(instrument)]);
         }
 
-        $(document).ready(function(){
-            multiSequencer.play();
-        });
-
         container.appendChild(multiSequencer.domElement);
-
+        
         Tone.Buffer.on('load', function () {
 
             aaf.common.loop.add(update);
@@ -99,6 +95,8 @@ function initJamSession() {
             window.parent.postMessage('ready', '*');
 
         });
+
+        multiSequencer.play();
     }
 
     function update() {
