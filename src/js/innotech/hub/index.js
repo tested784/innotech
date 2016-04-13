@@ -37,7 +37,7 @@ if (page.indexOf('/room') > -1) {
         });
 
         socket.on('userDisconnected', function (data) {
-            var user = _.findWhere(participants, {id: data.id});
+            var user = _.findWhere(participants, {user: data.id});
             if (user) {
                 if (user.hasOwnProperty('sequencer')) {
                     user.sequencer.stop();
@@ -48,7 +48,7 @@ if (page.indexOf('/room') > -1) {
         });
 
         socket.on('incomingSequence', function (data) {
-            var user = _.findWhere(participants, {id: data.user});
+            var user = _.findWhere(participants, {user: data.user});
             if (user) {
                 var sequence = data.sequence;
                 console.log(user.instrument);
