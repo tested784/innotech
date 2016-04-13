@@ -110,6 +110,7 @@ input {
 }
 
 .puck-button.play-pause {
+  display: none;
   margin-left: -30px;
   bottom: 213px;
   left: 50%;
@@ -118,6 +119,7 @@ input {
 
 .playing .puck-button.play-pause,
 .suspended .puck-button.play-pause {
+  display: none;
   background-image: url("/assets/image/ui_pause.svg");
 }
 
@@ -200,6 +202,7 @@ input {
 }
 
 .multi-sequencer {
+  overflow: hidden;
   background-color: #f7f7f7;
   width: 100%;
   height: 66.6666666%;
@@ -301,40 +304,23 @@ input {
   position: absolute;
   left: 50%;
   background: #a4a4a4;
-  margin-left: -2px;
-  margin-top: -2px;
-  width: 4px;
-  height: 4px;
+  margin-left: -37px;
+  margin-top: -37px;
+  width: 75px;
+  height: 75px;
   z-index: 1;
 }
 
-.sequencer .row .slot .symbol {
-  position: absolute;
-  left: 50%;
-  margin-left: -20px;
-  margin-top: -20px;
-  width: 40px;
-  height: 40px;
-  z-index: 2;
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -o-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition: -webkit-transform 300ms cubic-bezier(0.2, 1.64, 0.2, 0.89);
-  -moz-transition: -moz-transform 300ms cubic-bezier(0.2, 1.64, 0.2, 0.89);
-  -o-transition: -o-transform 300ms cubic-bezier(0.2, 1.64, 0.2, 0.89);
-  -ms-transition: -ms-transform 300ms cubic-bezier(0.2, 1.64, 0.2, 0.89);
-  transition: transform 300ms cubic-bezier(0.2, 1.64, 0.2, 0.89);
-  pointer-events: none;
+.instrument-guitar .multi-sequencer .sequencer .row .slot.active:after {
+  background: $main-green;
 }
 
-.sequencer .row .slot .symbol.active {
-  -webkit-transform: scale(1);
-  -moz-transform: scale(1);
-  -o-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+.instrument-drums .multi-sequencer .sequencer .row .slot.active:after {
+  background: $main-red;
+}
+
+.instrument-bass .multi-sequencer .sequencer .row .slot.active:after {
+  background: $main-sand;
 }
 
 #meta {

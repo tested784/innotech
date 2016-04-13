@@ -276,7 +276,7 @@ window.musicbox.Sequencer.prototype.updateStyles = function () {
 };
 
 window.musicbox.Sequencer.prototype.triggerAnimation = function (i, j, val) {
-    var symbol = this.slotElements[i][j].__symbol;
+    var symbol = this.slotElements[i][j];
 
     symbol.style.webkitTransform =
         symbol.style.transform = val ? 'scale( 1.5 )' : '';
@@ -308,13 +308,8 @@ window.musicbox.Sequencer.prototype.buildDom = function (opts) {
             var slot = document.createElement('div');
             slot.className = 'slot';
 
-            var symbol = document.createElement('div');
-            symbol.style.backgroundImage = 'url( ' + opts.symbols[track] + ' )';
-            symbol.className = 'symbol';
-
 
             // convenience access to per-beat get/setter methods
-            slot.__symbol = symbol;
             slot.__setBeat = this.setBeat.bind(this, track, beat, slot);
             slot.__getBeat = this.getBeat.bind(this, track, beat);
 
@@ -324,15 +319,14 @@ window.musicbox.Sequencer.prototype.buildDom = function (opts) {
             // update initial display
             slot.__setBeat(this.tracks[track][beat], true);
 
-
-            slot.appendChild(symbol);
             row.appendChild(slot);
             elements.push(slot);
 
 
             //slot.addEventListener( aaf.common.ua.touch ? 'touchstart' : 'mousedown', toggle, false );
-            slot.addEventListener('touchstart', toggle, false);
-            slot.addEventListener('mousedown', toggle, false);
+            // slot.addEventListener('touchstart', toggle, false);
+            // slot.addEventListener('mousedown', toggle, false);
+            slot.addEventListener('click', toggle, false);
 
         }
 
@@ -393,7 +387,7 @@ window.musicbox.Sequencer.prototype.setBeat = function (track, beat, el, val, su
     var same = this.tracks[track][beat] === val;
 
     this.tracks[track][beat] = val;
-    el.__symbol.classList.toggle('active', val);
+    el.classList.toggle('active', val);
 
     if (val && !same && !this.playing && suppressSample !== true) {
 

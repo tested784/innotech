@@ -84,6 +84,10 @@ function initJamSession() {
             multiSequencer.setActiveSequencer(sequencers[configKeys.indexOf(instrument)]);
         }
 
+        $(document).ready(function(){
+            multiSequencer.play();
+        });
+
         container.appendChild(multiSequencer.domElement);
 
         Tone.Buffer.on('load', function () {

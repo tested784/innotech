@@ -1,7 +1,7 @@
 window.musicbox.config.guitar.sequencer = {
 
-    beats: 6,
-    timeSignature: 6,
+    beats: 4,
+    timeSignature: 4,
     bpm: 100,
 
     samples: [
@@ -23,9 +23,9 @@ window.musicbox.config.guitar.sequencer = {
     ],
 
     tracks: [
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0]
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0]
     ]
 
 };
