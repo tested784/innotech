@@ -49,15 +49,6 @@ if (page.indexOf('/room') > -1) {
             }
         }
 
-        socket.on('connection', function () {
-            participants = [];
-            var sessionId = socket.io.engine.id;
-            window.sessionId = sessionId;
-            socket.emit('newUser', {
-                id: sessionId
-            });
-        });
-
         socket.on('newConnection', function (user) {
             participants.push(user);
             updateParticipants(participants);

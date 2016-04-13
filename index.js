@@ -89,6 +89,26 @@ app.post("/sequence", function (request, response) {
 
 });
 
+//POST method to create a chat message
+app.post("/instrumentSelected", function (request, response) {
+
+    //The request body expects a param named "message"
+    var instrument = request.body.instrument;
+    var user = request.body.user;
+
+    //If the message is empty or wasn't sent it's a bad request
+    if (_.isUndefined(instrument) || ( _.isUndefined(user) || _.isEmpty(user.trim()))) {
+        return response.json(400, {error: "Sequence is invalid"});
+    }
+
+    //Let our chatroom know there was a new message
+    io.to('music-jam').emit("instrumentSelected", {instrument: instrument, user: user});
+
+    //Looks good, let the client know
+    response.json(200, {message: "Instrument received"});
+
+});
+
 /* Socket.IO events */
 io.on("connection", function (socket) {
     // kijk of de room music-jam bestaat
@@ -107,16 +127,6 @@ io.on("connection", function (socket) {
         socket.on("newUser", function (data) {
             participants.push({id: data.id, instrument: data.instrument});
             io.to('music-jam').emit("newConnection", {id: data.id, instrument: data.instrument});
-        });
-
-        /*
-         When a user changes his name, we are expecting an event called "nameChange"
-         and then we'll emit an event called "nameChanged" to all participants with
-         the id and new name of the user who emitted the original message
-         */
-        socket.on("nameChange", function (data) {
-            _.findWhere(participants, {id: socket.id}).name = data.name;
-            io.to('music-jam').emit("nameChanged", {id: data.id, name: data.name});
         });
 
         /*

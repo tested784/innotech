@@ -2,12 +2,12 @@
   height: 100%;
 }
 
-.row {
+.row, .header {
   width: 100%;
   height: calc(100% / 3);
 }
 
-.row.choose {
+.row.choose, .header {
   padding-top: 40px;
 
   h2 {
@@ -17,24 +17,31 @@
   }
 }
 
-.row.choose.guitar {
+.row.choose.guitar, .header.guitar {
   background-color: $main-green;
-  background-image: url('/img/guitar.png');
+  background-image: url('/img/guitar.svg');
+  background-size: contain;
   background-position: bottom center;
   background-repeat: no-repeat;
 }
 
-.row.choose.bass {
+.row.choose.bass, .header.bass {
   background-color: $main-sand;
-  background-image: url('/img/bass.png');
+  background-image: url('/img/bass.svg');
+  background-size: contain;
   background-position: bottom center;
   background-repeat: no-repeat;
 }
 
-.row.choose.drums {
+.row.choose.drums, .header.drums {
   background-color: $main-red;
-  background-image: url('/img/drums.png');
+  background-image: url('/img/drums.svg');
+  background-size: 100%;
   background-position: bottom center;
   background-repeat: no-repeat;
+}
+
+.row.choose.unavailable {
+  opacity: 0.5;
 }
 

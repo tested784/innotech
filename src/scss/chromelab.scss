@@ -26,7 +26,7 @@ body {
   -ms-user-select: none;
   user-select: none;
   cursor: default;
-  background: #fff;
+  background: #000;
   overflow: hidden;
 }
 
@@ -214,8 +214,6 @@ input {
   margin: 0 auto;
   height: 100%;
   width: 100%;
-  max-width: 600px;
-  padding: 55px 20px;
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;

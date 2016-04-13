@@ -18,6 +18,7 @@ require('../config/config');
 
 var page = $(location).attr('pathname');
 var instrument = "";
+var participants = [];
 
 if (page === "/") {
     $(document).ready(function () {
@@ -26,84 +27,6 @@ if (page === "/") {
 }
 
 function initJamSession() {
-
-    var participants = [];
-
-    var serverBaseUrl = document.domain;
-
-    if (serverBaseUrl === "localhost") {
-        serverBaseUrl += ":8080";
-    }
-
-    /*
-     On client init, try to connect to the socket.IO server.
-     Note we don't specify a port since we set up our server
-     to run on port 8080
-     */
-    var socket = io.connect(serverBaseUrl);
-
-    //We'll save our session ID in a variable for later
-    var sessionId = '';
-
-    //Helper function to update the participants' list
-    function updateParticipants(participants) {
-        $('#participants').html('');
-        $('#participants').append('<ul id="participants-list">');
-        for (var i = 0; i < participants.length; i++) {
-            $('#participants-list').append('<li>' + participants[i].id + '</li>');
-        }
-    }
-
-    /*
-     When the client successfully connects to the server, an
-     event "connect" is emitted. Let's get the session ID and
-     log it. Also, let the socket.IO server there's a new user
-     with a session ID and a name. We'll emit the "newUser" event
-     for that.
-     */
-    socket.on('connect', function () {
-        var sessionId = socket.io.engine.id;
-        window.sessionId = sessionId;
-        socket.emit('newUser', {
-            id: sessionId,
-            instrument: instrument
-        });
-    });
-
-    /*
-     When the server emits the "newConnection" event, we'll reset
-     the participants section and display the connected clients.
-     Note we are assigning the sessionId as the span ID.
-     */
-    socket.on('newConnection', function (user) {
-        participants.push(user);
-        updateParticipants(participants);
-    });
-
-    /*
-     When the server emits the "userDisconnected" event, we'll
-     remove the span element from the participants element
-     */
-    socket.on('userDisconnected', function (data) {
-        participants = _.without(participants, _.findWhere(participants, {id: data.id}));
-    });
-
-    /*
-     When receiving a new chat message with the "incomingMessage" event,
-     we'll prepend it to the messages section
-     */
-    socket.on('incomingSequence', function (data) {
-        var sequence = data.sequence;
-        var user = data.sequence;
-        console.log('sequence sent and recieved!');
-    });
-
-    /*
-     Log an error if unable to connect to server
-     */
-    socket.on('error', function (reason) {
-        console.log('Unable to connect to server', reason);
-    });
 
 
     changePage();
@@ -180,11 +103,62 @@ function initJamSession() {
 }
 
 function initInstrumentSelection() {
+    var serverBaseUrl = document.domain;
+
+    if (serverBaseUrl === "localhost") {
+        serverBaseUrl += ":8080";
+    }
+
+    var socket = io.connect(serverBaseUrl);
+
     $('.choose').on('click', function () {
-        console.log('hey');
-        instrument = $(this).data('type');
-        $('#sequencePage').addClass('instrument-' + instrument);
-        initJamSession();
+        if ($(this).hasClass('unavailable') === false) {
+
+
+            instrument = $(this).data('type');
+            $.ajax({
+                url: '/instrumentSelected',
+                type: 'POST',
+                contentType: 'application/json',
+                dataType: 'json',
+                data: JSON.stringify({
+                    instrument: instrument,
+                    user: window.sessionId
+                })
+            });
+            $('#container').addClass('instrument-' + instrument);
+            $('#container .header').addClass(instrument);
+            $('#container .header').append('<h2>' + instrument.capitalizeFirstLetter() + '</h2>');
+            initJamSession();
+        }
+    });
+
+    socket.on('connect', function () {
+        var sessionId = socket.io.engine.id;
+        window.sessionId = sessionId;
+        socket.emit('newUser', {
+            id: sessionId,
+            instrument: instrument
+        });
+    });
+
+    socket.on('newConnection', function (user) {
+        participants.push(user);
+    });
+
+    socket.on('instrumentSelected', function (user) {
+        _.findWhere(participants, {user: user.id}).instrument = user.instrument;
+        for (var i = 0; i < participants.length; i++) {
+            $('.choose ' + '.' + user.instrument).toggleClass('unavailable');
+        }
+    });
+
+    socket.on('userDisconnected', function (data) {
+        participants = _.without(participants, _.findWhere(participants, {id: data.id}));
+    });
+
+    socket.on('error', function (reason) {
+        console.log('Unable to connect to server', reason);
     });
 }
 
