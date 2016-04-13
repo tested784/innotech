@@ -85,7 +85,7 @@ function initJamSession() {
         }
 
         container.appendChild(multiSequencer.domElement);
-        
+
         Tone.Buffer.on('load', function () {
 
             aaf.common.loop.add(update);
@@ -115,8 +115,6 @@ function initInstrumentSelection() {
 
     $('.choose').on('click', function () {
         if ($(this).hasClass('unavailable') === false) {
-
-
             instrument = $(this).data('type');
             $.ajax({
                 url: '/instrumentSelected',
@@ -125,7 +123,7 @@ function initInstrumentSelection() {
                 dataType: 'json',
                 data: JSON.stringify({
                     instrument: instrument,
-                    user: window.sessionId
+                    id: window.sessionId
                 })
             });
             $('#container').addClass('instrument-' + instrument);
@@ -149,7 +147,7 @@ function initInstrumentSelection() {
     });
 
     socket.on('instrumentSelected', function (user) {
-        _.findWhere(participants, {user: user.id}).instrument = user.instrument;
+        _.findWhere(participants, {id: user.id}).instrument = user.instrument;
         for (var i = 0; i < participants.length; i++) {
             $('.choose ' + '.' + user.instrument).toggleClass('unavailable');
         }

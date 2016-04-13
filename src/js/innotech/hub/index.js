@@ -37,7 +37,7 @@ if (page.indexOf('/room') > -1) {
         });
 
         socket.on('userDisconnected', function (data) {
-            var user = _.findWhere(participants, {user: data.id});
+            var user = _.findWhere(participants, {id: data.id});
             if (user) {
                 if (user.hasOwnProperty('sequencer')) {
                     user.sequencer.stop();
@@ -48,10 +48,9 @@ if (page.indexOf('/room') > -1) {
         });
 
         socket.on('incomingSequence', function (data) {
-            var user = _.findWhere(participants, {user: data.user});
+            var user = _.findWhere(participants, {id: data.user});
             if (user) {
                 var sequence = data.sequence;
-                console.log(user.instrument);
                 var opts = window.musicbox.config[user.instrument].sequencer;
                 opts.tracks = sequence;
                 if (user.hasOwnProperty('sequencer')) {
@@ -67,7 +66,11 @@ if (page.indexOf('/room') > -1) {
         });
 
         socket.on('instrumentSelected', function (user) {
-            _.findWhere(participants, {user: user.id}).instrument = user.instrument;
+            console.log("Instrument Selected");
+            console.log(user);
+            console.log(participants);
+            console.log("/Instrument Selected");
+            _.findWhere(participants, {id: user.user}).instrument = user.instrument;
             $('.' + user.instrument).toggleClass('unavailable');
         });
 

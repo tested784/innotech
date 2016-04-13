@@ -94,7 +94,7 @@ app.post("/instrumentSelected", function (request, response) {
 
     //The request body expects a param named "message"
     var instrument = request.body.instrument;
-    var user = request.body.user;
+    var user = request.body.id;
 
     //If the message is empty or wasn't sent it's a bad request
     if (_.isUndefined(instrument) || ( _.isUndefined(user) || _.isEmpty(user.trim()))) {
