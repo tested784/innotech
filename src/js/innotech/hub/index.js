@@ -43,7 +43,7 @@ if (page.indexOf('/room') > -1) {
                     user.sequencer.stop();
                 }
             }
-
+            $('.' + user.instrument).toggleClass('unavailable');
             participants = _.without(participants, _.findWhere(participants, {id: data.id}));
         });
 
@@ -66,10 +66,6 @@ if (page.indexOf('/room') > -1) {
         });
 
         socket.on('instrumentSelected', function (user) {
-            console.log("Instrument Selected");
-            console.log(user);
-            console.log(participants);
-            console.log("/Instrument Selected");
             _.findWhere(participants, {id: user.user}).instrument = user.instrument;
             $('.' + user.instrument).toggleClass('unavailable');
         });
