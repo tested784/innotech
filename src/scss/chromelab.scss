@@ -317,11 +317,11 @@ input {
 }
 
 .instrument-drums .multi-sequencer .sequencer .row .slot.active:after {
-  background: $main-red;
+  background: $main-sand;
 }
 
 .instrument-bass .multi-sequencer .sequencer .row .slot.active:after {
-  background: $main-sand;
+  background: $main-red;
 }
 
 #meta {
@@ -386,7 +386,7 @@ input {
   display: inline-block;
   text-align: center;
   h2 {
-    font-size: 6em;
+    font-size: 5em;
     color: #fff;
     text-align: center;
   }
@@ -440,3 +440,30 @@ input {
     // CSS applied when the device is in landscape mode
 }
 
+.bottom-column span {
+  font-size: 50px;
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.bottom-column span:nth-child(2) {
+  animation-delay: .2s;
+}
+
+.bottom-column span:nth-child(3) {
+  animation-delay: .4s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}
