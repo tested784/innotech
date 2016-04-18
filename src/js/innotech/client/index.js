@@ -96,6 +96,17 @@ function initJamSession() {
 
         });
 
+        var sequence = multiSequencer.activeSequencer.getTracks();
+        $.ajax({
+            url: '/sequence',
+            type: 'POST',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify({
+                sequence: sequence,
+                user: window.sessionId
+            })
+        });
         multiSequencer.play();
     }
 
@@ -113,7 +124,7 @@ function initInstrumentSelection() {
 
     var socket = io.connect(serverBaseUrl);
 
-    $('.choose').on('click', function () {
+    $('.choose:not(.unavailable)').on('click', function () {
         if ($(this).hasClass('unavailable') === false) {
             instrument = $(this).data('type');
             $.ajax({
@@ -146,7 +157,7 @@ function initInstrumentSelection() {
         participants = data.participants;
         for (var i = 0; i < participants.length; i++) {
             if (participants[i].instrument !== "") {
-                $('.choose ' + '.' + participants[i].instrument).toggleClass('unavailable');
+                $('.choose' + '.' + participants[i].instrument).toggleClass('unavailable');
             }
         }
     });

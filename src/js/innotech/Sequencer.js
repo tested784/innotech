@@ -167,6 +167,23 @@ window.musicbox.Sequencer.prototype.stop = function () {
 
 };
 
+window.musicbox.Sequencer.prototype.onDisconnect = function () {
+
+    this.playing = false;
+
+    for (var i = 0, l = this.tracks.length; i < l; i++) {
+        for (var j = 0; j < this.beats; j++) {
+            this.triggerAnimation(i, j, false);
+        }
+    }
+
+    this.sampler.volume.cancelScheduledValues();
+
+    // this.sampler.volume.setRampPoint();
+    // this.sampler.volume.linearRampToValueAtTime( -100, '+4n' )
+
+};
+
 window.musicbox.Sequencer.prototype.animateNote = function (track, beat) {
 
 

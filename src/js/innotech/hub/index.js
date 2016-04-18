@@ -40,7 +40,7 @@ if (page.indexOf('/room') > -1) {
             var user = _.findWhere(participants, {id: data.id});
             if (user) {
                 if (user.hasOwnProperty('sequencer')) {
-                    user.sequencer.stop();
+                    user.sequencer.onDisconnect();
                 }
                 $('.' + user.instrument).toggleClass('unavailable');
             }
