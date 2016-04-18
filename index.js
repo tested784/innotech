@@ -141,7 +141,7 @@ io.on("connection", function (socket) {
         socket.on("disconnect", function () {
             socket.leave('music-jam');
             var participant =  _.findWhere(participants, {id: socket.id});
-            if(participant === false){
+            if(participant === undefined || participant === null || participant === 'undefined'){
                 participant = {};
                 participant.instrument = "none";
             }
