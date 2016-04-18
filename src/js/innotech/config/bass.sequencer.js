@@ -1,13 +1,14 @@
 window.musicbox.config.bass.sequencer = {
 
-    beats: 4,
-    timeSignature: 4,
+    beats: 8,
+    timeSignature: 8,
     bpm: 100,
 
     samples: [
-        '/assets/sample/bass/C_bass.mp3',
-        '/assets/sample/bass/F_bass.mp3',
-        '/assets/sample/bass/G_bass.mp3'
+        '/assets/sample/bass/Klick.mp3',
+        '/assets/sample/bass/C-Bass.mp3',
+        '/assets/sample/bass/D-Bass.mp3',
+        '/assets/sample/bass/G-Bass.mp3'
     ],
 
     symbols: [
@@ -23,9 +24,10 @@ window.musicbox.config.bass.sequencer = {
     ],
 
     tracks: [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0]
     ]
 
 };

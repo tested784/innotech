@@ -1,11 +1,12 @@
 window.musicbox.config.drums.sequencer = {
 
-    beats: 4,
-    timeSignature: 4,
+    beats: 8,
+    timeSignature: 8,
     bpm: 100,
 
     samples: [
-        '/assets/sample/drums/HH.mp3',
+        '/assets/sample/drums/Chrash.mp3',
+        '/assets/sample/drums/HiHat.mp3',
         '/assets/sample/drums/Snare.mp3',
         '/assets/sample/drums/Kick.mp3'
     ],
@@ -23,9 +24,10 @@ window.musicbox.config.drums.sequencer = {
     ],
 
     tracks: [
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0]
     ]
 
 };
