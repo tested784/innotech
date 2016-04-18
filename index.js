@@ -141,7 +141,13 @@ io.on("connection", function (socket) {
         socket.on("disconnect", function () {
             socket.leave('music-jam');
             var participant =  _.findWhere(participants, {id: socket.id});
-            participants = _.without(participants, participant);
+            if(participant === false){
+                participant = {};
+                participant.instrument = "none";
+            }
+            else{
+                participants = _.without(participants, participant);
+            }
             io.to('music-jam').emit("userDisconnected", {id: socket.id, instrument: participant.instrument, sender: "system"});
         });
     }
