@@ -42,8 +42,8 @@ if (page.indexOf('/room') > -1) {
                 if (user.hasOwnProperty('sequencer')) {
                     user.sequencer.stop();
                 }
+                $('.' + user.instrument).toggleClass('unavailable');
             }
-            $('.' + user.instrument).toggleClass('unavailable');
             participants = _.without(participants, _.findWhere(participants, {id: data.id}));
         });
 
@@ -54,9 +54,7 @@ if (page.indexOf('/room') > -1) {
                 var opts = window.musicbox.config[user.instrument].sequencer;
                 opts.tracks = sequence;
                 if (user.hasOwnProperty('sequencer')) {
-                    user.sequencer.stop();
                     user.sequencer.setTracks(sequence);
-                    user.sequencer.start();
                 }
                 else {
                     user.sequencer = new window.musicbox.Sequencer(opts);

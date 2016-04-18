@@ -95,6 +95,7 @@ app.post("/instrumentSelected", function (request, response) {
     //The request body expects a param named "message"
     var instrument = request.body.instrument;
     var user = request.body.id;
+    _.findWhere(participants, {id: user}).instrument = instrument;
 
     //If the message is empty or wasn't sent it's a bad request
     if (_.isUndefined(instrument) || ( _.isUndefined(user) || _.isEmpty(user.trim()))) {
@@ -119,6 +120,9 @@ io.on("connection", function (socket) {
     // max aantal clients in room = 4
     if (room === undefined || roomSize < 4) {
         socket.join('music-jam');
+
+        io.to('music-jam').emit("roomInit", {participants: participants});
+
         /*
          When a new user connects to our server, we expect an event called "newUser"
          and then we'll emit an event called "newConnection" with a list of all
@@ -136,8 +140,9 @@ io.on("connection", function (socket) {
          */
         socket.on("disconnect", function () {
             socket.leave('music-jam');
-            participants = _.without(participants, _.findWhere(participants, {id: socket.id}));
-            io.to('music-jam').emit("userDisconnected", {id: socket.id, sender: "system"});
+            var participant =  _.findWhere(participants, {id: socket.id});
+            participants = _.without(participants, participant);
+            io.to('music-jam').emit("userDisconnected", {id: socket.id, instrument: participant.instrument, sender: "system"});
         });
     }
     else {

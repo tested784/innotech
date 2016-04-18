@@ -142,19 +142,33 @@ function initInstrumentSelection() {
         });
     });
 
+    socket.on('roomInit', function (data) {
+        participants = data.participants;
+        for (var i = 0; i < participants.length; i++) {
+            if (participants[i].instrument !== "") {
+                $('.choose ' + '.' + participants[i].instrument).toggleClass('unavailable');
+            }
+        }
+    });
+
     socket.on('newConnection', function (user) {
         participants.push(user);
     });
 
     socket.on('instrumentSelected', function (user) {
-        _.findWhere(participants, {id: user.id}).instrument = user.instrument;
-        for (var i = 0; i < participants.length; i++) {
-            $('.choose ' + '.' + user.instrument).toggleClass('unavailable');
-        }
+        var participant = _.findWhere(participants, {id: user.user});
+        participant.instrument = user.instrument;
+        var className = '.choose' + '.' + participant.instrument;
+
+        $(className).toggleClass('unavailable');
     });
 
     socket.on('userDisconnected', function (data) {
+        console.log(data);
         participants = _.without(participants, _.findWhere(participants, {id: data.id}));
+        var className = '.choose' + '.' + data.instrument;
+
+        $(className).toggleClass('unavailable');
     });
 
     socket.on('error', function (reason) {
