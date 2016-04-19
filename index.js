@@ -50,8 +50,11 @@ app.use(bodyParser.json());
 //Handle route "GET /", as in "http://localhost:8080/"
 app.get("/", function (request, response) {
 
-    //Render the view called "index"
-    response.render("index");
+    
+        //Render the view called "index"
+        response.render("index");
+
+
 
 });
 

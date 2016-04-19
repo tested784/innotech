@@ -170,7 +170,18 @@ function initInstrumentSelection() {
         var participant = _.findWhere(participants, {id: user.user});
         participant.instrument = user.instrument;
         var className = '.choose' + '.' + participant.instrument;
-
+        var colors = {
+            guitar: '#58D0C5',
+            drums: '#FFD192',
+            bass: '#EC4A5E'
+        };
+        var currentUser = _.findWhere(participants, {id: socket.id});
+        var instrument = currentUser.instrument;
+        if(colors.hasOwnProperty(instrument)){
+            $('meta[name=theme-color]').attr('content', colors[instrument]);
+            $('meta[name=msapplication-navbutton-color]').attr('content', colors[instrument]);
+            $('meta[name=apple-mobile-web-app-status-bar-style]').attr('content', colors[instrument]);
+        }
         $(className).toggleClass('unavailable');
     });
 
