@@ -265,15 +265,14 @@ $(document).ready(function(){
     stringPlucked_3 = document.getElementById('stringPlucked_3');
     stringStraight_4 = document.getElementById('stringStraight_4');
     stringPlucked_4 = document.getElementById('stringPlucked_4');
-    speaker_1 = document.getElementById('speaker-1');
-    note_1 = document.getElementById('note-1_1_');
-    note_2 = document.getElementById('note-2_1_');
-    note_3 = document.getElementById('note-3_1_');
-    note_4 = document.getElementById('note-4_1_');
-    spark_1 = document.getElementById('spark-1_2_');
-    spark_2 = document.getElementById('spark-3_2_');
-    spark_3 = document.getElementById('spark-4_2_');
-    speaker_1 = document.getElementById('bass-Amp-Speaker');
+    bass_note_1 = document.getElementById('note-1_1_');
+    bass_note_2 = document.getElementById('note-2_1_');
+    bass_note_3 = document.getElementById('note-3_1_');
+    bass_note_4 = document.getElementById('note-4_1_');
+    bass_spark_1 = document.getElementById('spark-1_2_');
+    bass_spark_2 = document.getElementById('spark-3_2_');
+    bass_spark_3 = document.getElementById('spark-4_2_');
+    bass_speaker_1 = document.getElementById('bass-Amp-Speaker');
 
 //Declare timeline
     var bassPluck = new TimelineMax({
@@ -294,38 +293,38 @@ $(document).ready(function(){
         .to(stringStraight_4, 1, {morphSVG: {points: stringStraight_4.getAttribute('points')},ease: Elastic.easeOut.config(stringStringyness, 0.04)}, "-=1")
 
         //Note Animations
-        .to(note_1, 0.4, {x:"-50%", y:"-50%"}, "-=1.1")
-        .to(note_1, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
-        .to(note_1, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
+        .to(bass_note_1, 0.4, {x:"-50%", y:"-50%"}, "-=1.1")
+        .to(bass_note_1, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
+        .to(bass_note_1, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
 
-        .to(note_2, 0.4, {x:"50%", y:"-50%"}, "-=1.1")
-        .to(note_2, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
-        .to(note_2, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
+        .to(bass_note_2, 0.4, {x:"50%", y:"-50%"}, "-=1.1")
+        .to(bass_note_2, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
+        .to(bass_note_2, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
 
-        .to(note_3, 0.4, {x:"-20%", y:"-50%"}, "-=1.1")
-        .to(note_3, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
-        .to(note_3, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
+        .to(bass_note_3, 0.4, {x:"-20%", y:"-50%"}, "-=1.1")
+        .to(bass_note_3, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
+        .to(bass_note_3, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
 
-        .to(note_4, 0.4, {x:"50%", y:"-25%"}, "-=1.1")
-        .to(note_4, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
-        .to(note_4, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
+        .to(bass_note_4, 0.4, {x:"50%", y:"-25%"}, "-=1.1")
+        .to(bass_note_4, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
+        .to(bass_note_4, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
 
         //Sparks Animations
-        .to(spark_1, 0.4, {x:"-50%", y:"50%"}, "-=1.1")
-        .to(spark_1, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
-        .to(spark_1, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
+        .to(bass_spark_1, 0.4, {x:"-50%", y:"50%"}, "-=1.1")
+        .to(bass_spark_1, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
+        .to(bass_spark_1, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
 
-        .to(spark_2, 0.4, {x:"-50%", y:"-50%"}, "-=1.1")
-        .to(spark_2, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
-        .to(spark_2, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
+        .to(bass_spark_2, 0.4, {x:"-50%", y:"-50%"}, "-=1.1")
+        .to(bass_spark_2, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
+        .to(bass_spark_2, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
 
-        .to(spark_3, 0.4, {x:"50%", y:"-50%"}, "-=1.1")
-        .to(spark_3, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
-        .to(spark_3, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
+        .to(bass_spark_3, 0.4, {x:"50%", y:"-50%"}, "-=1.1")
+        .to(bass_spark_3, 0.2, {opacity:1 , ease:SlowMo.easeIn}, "-=1.1")
+        .to(bass_spark_3, 0.2, {opacity:0 , ease:SlowMo.easeOut}, "-=0.9")
 
-        //Speaker Animtaions
-        .to(speaker_1, 0.1, {scale: 1.015, transformOrigin: "50% 50%", ease: Expo.easeOut}, "-=1.1")
-        .to(speaker_1, 0.3, {scale: 1, transformOrigin: "50% 50%", ease: Elastic.easeOut}, "-=1");
+        //bass_speaker Animtaions
+        .to(bass_speaker_1, 0.1, {scale: 1.015, transformOrigin: "50% 50%", ease: Expo.easeOut}, "-=1.1")
+        .to(bass_speaker_1, 0.3, {scale: 1, transformOrigin: "50% 50%", ease: Elastic.easeOut}, "-=1");
     /*
     End of bass
      */
