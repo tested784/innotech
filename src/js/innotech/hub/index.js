@@ -184,11 +184,11 @@ $(document).ready(function(){
     spark_2 = document.getElementById('spark-3');
     spark_3 = document.getElementById('spark-4');
 
-    var pluck = new TimelineMax({
+    var guitarPluck = new TimelineMax({
         paused: true
     });
 
-    pluck.to(stringStraight_6_, 0.1, {ease: Expo.easeOut,morphSVG: {points: stringPlucked_6_.getAttribute('points')}})
+    guitarPluck.to(stringStraight_6_, 0.1, {ease: Expo.easeOut,morphSVG: {points: stringPlucked_6_.getAttribute('points')}})
         .to(stringStraight_6_, 1, {morphSVG: {points: stringStraight_6_.getAttribute('points')},ease: Elastic.easeOut.config(stringStringyness, 0.04)})
 
         .to(stringStraight_7_, 0.1, {ease: Expo.easeOut,morphSVG: {points: stringPlucked_7_.getAttribute('points')}}, "-=1.1")
@@ -244,8 +244,8 @@ $(document).ready(function(){
         .to(speaker_2, 0.4, {morphSVG:speaker_2,ease: Elastic.easeOut}, "-=0.95");
 
     function rockOutGuitar() {
-        pluck.restart();
-        pluck.play();
+        guitarPluck.restart();
+        guitarPluck.play();
     }
     /*
     End of guitar
@@ -276,12 +276,12 @@ $(document).ready(function(){
     speaker_1 = document.getElementById('bass-Amp-Speaker');
 
 //Declare timeline
-    var pluck = new TimelineMax({
+    var bassPluck = new TimelineMax({
         paused: true
-    })
+    });
 
 //String Animtaions
-    pluck.to(stringStraight_1, 0.1, {ease: Expo.easeOut,morphSVG: {points: stringPlucked_1.getAttribute('points')}})
+    bassPluck.to(stringStraight_1, 0.1, {ease: Expo.easeOut,morphSVG: {points: stringPlucked_1.getAttribute('points')}})
         .to(stringStraight_1, 1, {morphSVG: {points: stringStraight_1.getAttribute('points')},ease: Elastic.easeOut.config(stringStringyness, 0.04)})
 
         .to(stringStraight_2, 0.1, {ease: Expo.easeOut,morphSVG: {points: stringPlucked_2.getAttribute('points')}}, "-=1.1")
