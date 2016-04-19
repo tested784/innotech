@@ -27,7 +27,8 @@ module.exports = {
     root: [path.resolve(__dirname, '../node_modules')]
   },
   module: {
-    loaders: [{
+    loaders: [
+      {
       test: /\.(jpe?g|png|gif)$/i,
       loaders: ['file?hash=sha512&digest=hex&name=[path][name].[ext]&context=' + serverConfig.srcPath, 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false']
     }, {

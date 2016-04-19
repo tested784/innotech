@@ -417,10 +417,10 @@ input {
 #container .message {
   position: relative;
   text-align: center;
-  display: block;
-  height: calc(100%/3);
-  margin-top: calc(100%/2);
-  padding-top: calc(100%/6);
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  height: 100%;
 }
 
   @media screen and (orientation:portrait) {
@@ -428,7 +428,7 @@ input {
       display: none;
     }
     #container .message {
-      display: block;
+      display: flex;
     }
     // CSS applied when the device is in portrait mode
   }

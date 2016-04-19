@@ -1,7 +1,8 @@
 doctype html
 html
     head
-        link(rel="manifest", href="manifest.json")
+        link(rel="stylesheet" href="/css/butler_font.css")
+        link(rel="stylesheet" href="/css/app.css")
         title Innovative Technology - Client
     body
         div#selectionPage
@@ -14,11 +15,9 @@ html
                     h2 Bass
         div#sequencePage.hide
             div#container
-                //div.header
                 div.message
-                    h2 Rotate your device
                     svg
-                        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#orientation")
+                        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#rotate")
         script(src='/js/app.js')
 
 
