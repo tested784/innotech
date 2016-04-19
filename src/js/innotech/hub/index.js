@@ -333,7 +333,6 @@ $(document).ready(function(){
     function rockOutBass() {
         pluck.restart();
         pluck.play();
-        playAudio();
     }
 
     function animateInstrument(details){
