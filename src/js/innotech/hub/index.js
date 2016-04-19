@@ -330,8 +330,8 @@ $(document).ready(function(){
      */
 
     function rockOutBass() {
-        pluck.restart();
-        pluck.play();
+        bassPluck.restart();
+        bassPluck.play();
     }
 
     function animateInstrument(details){
