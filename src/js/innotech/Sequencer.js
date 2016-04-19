@@ -19,6 +19,8 @@ window.musicbox.Sequencer = function (opts) {
         bpm: 100
 
     });
+    
+    this.instrument = opts.instrument;
 
     this.samples = opts.samples;
     this.beats = opts.beats;
@@ -81,7 +83,7 @@ window.musicbox.Sequencer = function (opts) {
     }
 
 
-    this.onInterval = this.onInterval.bind(this)
+    this.onInterval = this.onInterval.bind(this);
 
     this.stepNumber = 0;
     this.dragOperation = true;
@@ -210,6 +212,10 @@ window.musicbox.Sequencer.prototype.onInterval = function (time) {
         var track = this.tracks[i];
 
         if (track[this.stepNumber]) {
+
+            var trackName = this.trackNames[i];
+            var event = new CustomEvent('instrumentPlayed', { 'detail': { 'type': trackName, 'instrument': this.instrument} });
+            window.dispatchEvent(event);
 
             this.sampler.triggerAttackRelease(this.trackNames[i], '1n', time);
 
@@ -415,7 +421,6 @@ window.musicbox.Sequencer.prototype.setBeat = function (track, beat, el, val, su
 };
 
 window.musicbox.Sequencer.prototype.triggerSample = function (track, vel) {
-
     if (vel === undefined) {
         vel = 1;
     }

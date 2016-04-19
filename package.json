@@ -14,11 +14,12 @@
     "npm": ">= 1.0.0"
   },
   "dependencies": {
+    "body-parser": "1.4.3",
     "express": "4.6.1",
+    "gsap": "^1.18.2",
     "jade": "1.4.2",
     "socket.io": "1.0.6",
-    "underscore": "1.6.0",
-    "body-parser": "1.4.3"
+    "underscore": "1.6.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],
@@ -28,4 +29,3 @@
     "start": "node index.js"
   }
 }
-

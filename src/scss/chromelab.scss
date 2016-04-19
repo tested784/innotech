@@ -467,3 +467,72 @@ input {
     opacity: .2;
   }
 }
+
+/*
+Instruments
+*/
+.notes, .sparks {
+  opacity: 0;
+}
+
+#Bass-Shadow_1_ {
+  animation: shadowBass 4s infinite linear;
+  transform-origin: 50% 50%;
+}
+
+#Bass_Guitar_1_ {
+  animation: hoverBass 4s infinite linear;
+}
+
+@keyframes hoverBass {
+  from, to {
+    transition-timing-function: ease-in-out;
+    transform: translate3d(0,0,0);
+  }
+  50% {
+    transition-timing-function: ease-in-out;
+    transform: translate3d(0,1.5%,0);
+  }
+}
+
+@keyframes shadowBass {
+  from, to {
+    transition-timing-function: ease-in-out;
+    transform: scale(0.95,1);
+  }
+  50% {
+    transition-timing-function: ease-in-out;
+    transform: scale(1.05,1);
+  }
+}
+
+#shadow {
+  animation: shadowGuitar 4s infinite linear;
+  transform-origin: 50% 50%;
+}
+
+#guitar_2_ {
+  animation: hoverGuitar 4s infinite linear;
+}
+
+@keyframes hoverGuitar {
+  from, to {
+    transition-timing-function: ease-in-out;
+    transform: translate3d(0,0,0);
+  }
+  50% {
+    transition-timing-function: ease-in-out;
+    transform: translate3d(0,1.5%,0);
+  }
+}
+
+@keyframes shadowGuitar {
+  from, to {
+    transition-timing-function: ease-in-out;
+    transform: scale(0.95,1);
+  }
+  50% {
+    transition-timing-function: ease-in-out;
+    transform: scale(1.05,1);
+  }
+}

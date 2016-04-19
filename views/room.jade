@@ -2,21 +2,20 @@ doctype html
 html
     head
         title Innovative Technology - Room
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js")
+        script(src="/js/morphSVG.min.js")
     body
         div#container
+
             div(class="column guitar", data-type="guitar")
                 div.svg-container.instrument-guitar
-                    svg(width="500px", height="600px", viewBox="0 0 100 100")
-                        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#guitar")
+                    include guitar-svg.html
             div(class="column drums", data-type="drums")
-                div.svg-container.instrument-guitar
-                    svg(width="500px", height="600px", viewBox="0 0 100 100")
-                        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#drums")
-
+                div.svg-container.instrument-drums
+                    include drum-svg.html
             div(class="column bass", data-type="bass")
                 div.svg-container.instrument-bass
-                    svg(width="500px", height="600px", viewBox="0 0 100 100")
-                        use(xmlns:xlink="http://www.w3.org/1999/xlink", xlink:href="#bass")
+                    include bass-svg.html
         div#textContainer
             div.bottom-column.guitarText
                 h2 Guitar
